@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from "../Assets/logo.svg"
+import logo from "../Assets/logo.svg";
+import { CiSearch } from "react-icons/ci"
 
 const Header = () => {
   return (
@@ -16,7 +17,11 @@ const Header = () => {
             <Nav>Templates</Nav>
             <Nav>Explore</Nav>
           </Navigation>
-          <Profile></Profile>
+          <Profile>
+            <CiSearch />
+            <CiSearch />
+            <CiSearch />
+          </Profile>
         </Wrapper>
       </Container>
     </div>
