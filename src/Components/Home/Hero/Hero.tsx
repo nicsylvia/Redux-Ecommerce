@@ -39,7 +39,7 @@ justify-content: center;
 align-items: center;
     
     span{
-        margin-left: 10px;
+    margin-left: 10px;
   font-weight: 900;
   margin-top: 5px;
   font-size: 30px;
