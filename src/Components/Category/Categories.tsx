@@ -7,11 +7,11 @@ import { IoDiamondOutline } from "react-icons/io5"
 const Categories = () => {
 
   const [showwomen, setShowwomen] = useState<Boolean>(true)
-  const [showmen, setshowmen] = useState<Boolean>(true)
-  const [showkids, setshowkids] = useState<Boolean>(true)
-  const [showsports, setShowsports] = useState<Boolean>(true)
-  const [showbeauty, setShowbeauty] = useState<Boolean>(true)
-  const [showjewelry, setShowjewelry] = useState<Boolean>(true)
+  const [showmen, setshowmen] = useState<Boolean>(false)
+  const [showkids, setshowkids] = useState<Boolean>(false)
+  const [showsports, setShowsports] = useState<Boolean>(false)
+  const [showbeauty, setShowbeauty] = useState<Boolean>(false)
+  const [showjewelry, setShowjewelry] = useState<Boolean>(false)
 
   const togglewomen = () =>{
     setShowwomen(true)
@@ -74,34 +74,30 @@ const Categories = () => {
         <Wrapper>
           <h1>Start exploring.</h1>
           <Category>
-            {
-              showwomen ? <Div onClick={togglewomen} bcc = "true" cc = "true">
+            <Div onClick={togglewomen} bcc = {showwomen ? "bcc" : ""}>
               <span><RiWomenLine /></span>
               Women
-            </Div> : ""
-            }
-            {
-              showmen ? <Div onClick={togglemen} bcc = "true" cc = "true">
+            </Div> 
+            <Div onClick={togglemen} bcc = {showmen ? "bcc" : ""}>
               <span><AiOutlineMan /></span>
               Man
-            </Div> : null
-            }
-            {/* <Div>
+            </Div> 
+            <Div onClick={togglekids} bcc = {showkids ? "bcc" : ""}>
               <span><RiWomenLine /></span>
               Kids
             </Div>
-            <Div>
+            <Div onClick={togglesports} bcc = {showsports ? "bcc" : ""}>
               <span><RiWomenLine /></span>
               Sports
             </Div>
-            <Div>
+            <Div onClick={togglebeauty} bcc = {showbeauty ? "bcc" : ""}>
               <span><RiVipCrownLine /></span>
               Beauty
             </Div>
-            <Div>
+            <Div onClick={togglejewelry} bcc = {showjewelry ? "bcc" : ""}>
               <span><IoDiamondOutline /></span>
               Jewelry
-            </Div> */}
+            </Div>
           </Category>
         </Wrapper>
       </Container>
@@ -111,7 +107,7 @@ const Categories = () => {
 
 export default Categories;
 
-const Div = styled.div<{bcc: string; cc: string}>`
+const Div = styled.div<{bcc: string}>`
   width: 150px;
   /* height: 50px; */
   border-radius: 30px;
@@ -125,8 +121,8 @@ const Div = styled.div<{bcc: string; cc: string}>`
     margin-right: 10px;
     font-size: 25px;
   }
-  background-color: ${({bcc}) => bcc ? "#0F172A": "#DEEBFF"};
-  color: ${({cc}) => cc ? "#fff" : "#0F172A"};
+  background-color: ${({bcc}) => bcc ? "#0F172A": ""};
+  color: ${({bcc}) => bcc ? "#fff" : ""};
 `;
 const Category = styled.div`
   width: 800px;
