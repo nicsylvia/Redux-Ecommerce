@@ -182,8 +182,8 @@ const Wrapper = styled.div`
     width: 90%;
     padding: 10px 0px 10px 0px;
     display: flex;
+    /* background-color: red; */
     flex-direction: column;
-    /* border-bottom: 1px solid grey; */
     span{
         color: gray;
         font-weight: 600;

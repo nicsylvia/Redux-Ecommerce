@@ -42,6 +42,7 @@ const Filter = () => {
                 <Title>Enjoy the product</Title>
                 <Bio>Have fun and enjoy your 5-star quality products</Bio>
               </Pack>
+              <hr />
             </Wrapper>
         </Container>
     </div>
@@ -91,6 +92,11 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
    flex-wrap: wrap;
+   hr{
+    width: 100%;
+    border: 1px solid #e2dfdf;
+    margin-top: 40px;
+  }
 `;
 const Container = styled.div`
     width: 100%;
