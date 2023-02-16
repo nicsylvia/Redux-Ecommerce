@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import bg from "../Assets/hero2.png"
+import bg from "../../Assets/hero2.png"
 import { CiSearch } from "react-icons/ci"
 
 const Hero = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import Discover from '../Discover/Discover'
-import Header from '../Header/Header'
-import Hero from '../Hero/Hero'
-import NewArrivals from '../NewArrivals/NewArrivals'
+import Hero from '../Home/Hero/Hero'
+import Filter from './Filter/Filter'
+import NewArrivals from './NewArrivals/NewArrivals'
 
 const HomeScreen = () => {
   return (
@@ -10,6 +10,7 @@ const HomeScreen = () => {
     <Hero/>
     <Discover />
     <NewArrivals />
+    <Filter />
     </div>
   )
 }

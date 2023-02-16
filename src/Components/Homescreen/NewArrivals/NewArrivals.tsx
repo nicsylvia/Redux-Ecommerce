@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import {AiOutlineHeart} from "react-icons/ai"
 import {BsFillStarFill} from "react-icons/bs"
-import shirt from "../Assets/shirt.png"
+import shirt from "../../Assets/shirt.png"
 
 const NewArrivals = () => {
   return (
