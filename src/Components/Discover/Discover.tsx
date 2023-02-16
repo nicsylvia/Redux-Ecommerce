@@ -18,7 +18,9 @@ const Discover = () => {
                             </Content>
                             <Button>Show me all</Button>
                             </Text>
-                            <Image src={yellowshirt} />
+                            <Image>
+                                <img src={yellowshirt} alt="" />
+                            </Image>
                         </Wrap>
                     </Card>
                 </CardHold>
@@ -56,7 +58,7 @@ const CardHold = styled.div`
     flex-wrap: wrap;
 `;
 const Card = styled.div`
-    width: 400px;
+    width: 700px;
     padding: 20px 0px 20px 0px;
     background-color: #EFF6FF;
     border-radius: 10px;
@@ -66,23 +68,28 @@ const Card = styled.div`
     justify-content: center;
 `;
 const Wrap = styled.div`
-    width: 350px;
+    width: 600px;
     padding: 10px 0px 10px 0px;
     background-color: green;
     display: flex;
 `;
 const Text = styled.div`
-    width: 200px;
+    width: 300px;
     background-color: purple;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 `;
 const Content = styled.div``;
-const Image = styled.img`
-    width: 150px;
-    height: 100%;
-    object-fit: cover;
+const Image = styled.div`
+    width: 300px;
+    padding: 5px 0px 5px 0px;
+    background-color: aqua;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `;
 const Button = styled.div`
     width: 150px;
