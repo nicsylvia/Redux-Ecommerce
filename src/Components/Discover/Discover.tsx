@@ -10,18 +10,28 @@ const Discover = () => {
                 <h1>Discover more. <span>Good things are waiting for you</span></h1>
                 <CardHold>
                     <Card>
-                        <Wrap>
-                            <Text>
+                        <Text>
                             <Content>
                             <h3>Explore new arrivals</h3>
                             <h2>Shop the latest from top brands</h2>
                             </Content>
                             <Button>Show me all</Button>
-                            </Text>
-                            <Image>
+                        </Text>
+                        <Image>
                                 <img src={yellowshirt} alt="" />
-                            </Image>
-                        </Wrap>
+                        </Image>
+                    </Card>
+                    <Card>
+                        <Text>
+                            <Content>
+                            <h3>Explore new arrivals</h3>
+                            <h2>Shop the latest from top brands</h2>
+                            </Content>
+                            <Button>Show me all</Button>
+                        </Text>
+                        <Image>
+                                <img src={yellowshirt} alt="" />
+                        </Image>
                     </Card>
                 </CardHold>
             </Wrapper>
@@ -35,7 +45,7 @@ export default Discover;
 const Container = styled.div`
     width: 100%;
     padding: 20px 0px 20px 0px;
-    background-color: red;
+    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,48 +53,40 @@ const Container = styled.div`
 const Wrapper = styled.div`
     width: 90%;
     padding: 10px 0px 10px 0px;
-    background-color: lue;
+    /* background-color: blue; */
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     span{
         color: gray;
     }
 `;
 const CardHold = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
+    /* background-color: yellow; */
 `;
 const Card = styled.div`
-    width: 700px;
-    padding: 20px 0px 20px 0px;
+    width: 450px;
+    padding: 20px;
     background-color: #EFF6FF;
     border-radius: 10px;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-const Wrap = styled.div`
-    width: 600px;
-    padding: 10px 0px 10px 0px;
-    background-color: green;
+    margin: 10px;
     display: flex;
 `;
 const Text = styled.div`
-    width: 300px;
-    background-color: purple;
+    width: 50%;
+    /* background-color: purple; */
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
 `;
-const Content = styled.div``;
+const Content = styled.div`
+    h2{
+        margin: 0;
+    }
+`;
 const Image = styled.div`
-    width: 300px;
-    padding: 5px 0px 5px 0px;
-    background-color: aqua;
+    width: 50%;
+    /* background-color: aqua; */
     img{
         width: 100%;
         height: 100%;
@@ -100,4 +102,5 @@ const Button = styled.div`
     align-items: center;
     justify-content: center;
     background-color: white;
+    margin-top: 60px;
 `;
