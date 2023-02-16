@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import yellowshirt from "../Assets/yellow-shirt.png"
 
 const Discover = () => {
   return (
@@ -8,7 +9,18 @@ const Discover = () => {
             <Wrapper>
                 <h1>Discover more. <span>Good things are waiting for you</span></h1>
                 <CardHold>
-                    <Card></Card>
+                    <Card>
+                        <Wrap>
+                            <Text>
+                            <Content>
+                            <h3>Explore new arrivals</h3>
+                            <h2>Shop the latest from top brands</h2>
+                            </Content>
+                            <Button>Show me all</Button>
+                            </Text>
+                            <Image src={yellowshirt} />
+                        </Wrap>
+                    </Card>
                 </CardHold>
             </Wrapper>
         </Container>
@@ -45,8 +57,40 @@ const CardHold = styled.div`
 `;
 const Card = styled.div`
     width: 400px;
-    padding: 30px 0px 30px 0px;
-    background-color: orange;
+    padding: 20px 0px 20px 0px;
+    background-color: #EFF6FF;
     border-radius: 10px;
     margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const Wrap = styled.div`
+    width: 350px;
+    padding: 10px 0px 10px 0px;
+    background-color: green;
+    display: flex;
+`;
+const Text = styled.div`
+    width: 200px;
+    background-color: purple;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+`;
+const Content = styled.div``;
+const Image = styled.img`
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+`;
+const Button = styled.div`
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 `;
