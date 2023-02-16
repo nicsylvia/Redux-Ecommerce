@@ -23,11 +23,17 @@ const Header = () => {
             <p>
             <CiSearch />
             </p>
-            <p>
-            <BsPerson />
-            </p>
+
             <p>
             <RiShoppingCartLine />
+            <Count>
+            <span>0</span>
+            </Count>
+            </p>
+            <p>
+              <Button>
+Get Started
+              </Button>
             </p>
           </Profile>
         </Wrapper>
@@ -37,6 +43,31 @@ const Header = () => {
 }
 
 export default Header;
+
+const Button = styled.button`
+padding: 10px 20px;
+background-color: #3d4fd7d6;
+border: 0;
+border-radius: 20px;
+font-size: 16px;
+font-weight: 500;
+color: #fff
+
+`
+
+const Count = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #3d4fd7d6;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+`
 
 const Container = styled.div`
   width: 100%;
@@ -73,5 +104,7 @@ const Profile = styled.div`
   p{
     margin-right: 30px;
     font-size: 25px;
+    display: flex;
+
   }
 `;
