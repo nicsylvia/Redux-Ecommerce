@@ -42,6 +42,7 @@ const NewArrivals = () => {
                         </Second>
                     </Display>
                 </Products>
+                <hr />
             </Wrapper>
         </Container>
     </div>
@@ -182,6 +183,7 @@ const Wrapper = styled.div`
     padding: 10px 0px 10px 0px;
     display: flex;
     flex-direction: column;
+    /* border-bottom: 1px solid grey; */
     span{
         color: gray;
         font-weight: 600;
@@ -189,5 +191,12 @@ const Wrapper = styled.div`
 
     h1{
               font-weight: 600;
+    }
+
+    hr{
+    
+        width: 100%;
+        border: 1px solid #e2dfdf;
+        margin-top: 40px;
     }
 `;
