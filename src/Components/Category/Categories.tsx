@@ -5,7 +5,12 @@ import { AiOutlineMan } from "react-icons/ai"
 import { IoDiamondOutline } from "react-icons/io5"
 import { BsArrowRight } from 'react-icons/bs';
 import blackbag from "../Assets/black-bag.png";
-import explore from "../Assets/explore2.svg";
+import explore1 from "../Assets/explore1.svg";
+import explore2 from "../Assets/explore2.svg";
+import explore3 from "../Assets/explore3.svg";
+import explore5 from "../Assets/explore5.svg";
+import explore6 from "../Assets/explore6.svg";
+import explore9 from "../Assets/explore9.svg";
 
 const Categories = () => {
 
