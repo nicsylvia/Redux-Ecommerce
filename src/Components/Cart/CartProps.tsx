@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { MdOutlineDoNotDisturb } from "react-icons/md";
 import pic from "../images/hero.png";
 import { AiOutlineCheck } from "react-icons/ai";
+import Summmary from './Summmary';
 
 
 const CartProps = () => {
@@ -51,7 +52,7 @@ const CartProps = () => {
               />
             </Product>
             <Summary>
-              <SummaryProps />
+              <Summmary />
             </Summary>
           </Body>
         </Wrapper>
