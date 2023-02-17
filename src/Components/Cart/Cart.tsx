@@ -1,8 +1,11 @@
 import React from 'react'
+import MainCartPage from './MainCartPage'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div>
+      <MainCartPage />
+    </div>
   )
 }
 
