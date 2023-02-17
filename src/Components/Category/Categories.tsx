@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { RiWomenLine, RiVipCrownLine } from "react-icons/ri"
 import { AiOutlineMan } from "react-icons/ai"
 import { IoDiamondOutline } from "react-icons/io5"
+import { BsArrowRight } from 'react-icons/bs';
 
 const Categories = () => {
 
@@ -99,6 +100,27 @@ const Categories = () => {
               Jewelry
             </Div>
           </Category>
+
+          <Cards>
+
+                <Card>
+                    <Top>
+                        <TopImg src="/images/black-bag.png"/>
+
+                        <TopText>173 products</TopText>
+                    </Top>
+
+                    <Mid>
+                        <Manu>Manufacturer</Manu>
+
+                        <Back>BackPack</Back>
+                    </Mid>
+
+                    <Bottom>
+                        See Collection <BsArrowRight />
+                    </Bottom>
+                </Card>
+          </Cards>
         </Wrapper>
       </Container>
     </div>
