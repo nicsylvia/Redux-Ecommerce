@@ -6,8 +6,6 @@ import { IoDiamondOutline } from "react-icons/io5"
 import { BsArrowRight } from 'react-icons/bs';
 import blackbag from "../Assets/black-bag.png";
 import explore from "../Assets/explore2.svg";
-import blackbag from "../Assets/black-bag.png";
-import blackbag from "../Assets/black-bag.png";
 
 const Categories = () => {
 
@@ -142,6 +140,78 @@ const Categories = () => {
                         See Collection <BsArrowRight />
                     </Bottom>
                 </Card>
+                <Card style={{backgroundImage:"url(/images/explore3.svg)"}}>
+                    <Top>
+                        <TopImg src="/images/cloth.png"/>
+
+                        <TopText>173 products</TopText>
+                    </Top>
+
+                    <Mid>
+                        <Manu>Manufacturer</Manu>
+
+                        <Back>Recycled Blanket</Back>
+                    </Mid>
+
+                    <Bottom>
+                        See Collection <BsArrowRight />
+                    </Bottom>
+                </Card>
+
+                <Card style={{backgroundImage:"url(/images/explore5.svg)"}}>
+                    <Top>
+                        <TopImg src="/images/green-sweat.png"/>
+
+                        <TopText>279 products</TopText>
+                    </Top>
+
+                    <Mid>
+                        <Manu>Manufacturer</Manu>
+
+                        <Back>Cycling Shirts</Back>
+                    </Mid>
+
+                    <Bottom>
+                        See Collection <BsArrowRight />
+                    </Bottom>
+                </Card>
+
+                <Card style={{backgroundImage:"url(/images/explore6.svg)"}}>
+                    <Top>
+                        <TopImg src="/images/short.png"/>
+
+                        <TopText>320 products</TopText>
+                    </Top>
+
+                    <Mid>
+                        <Manu>Manufacturer</Manu>
+
+                        <Back>Shorts</Back>
+                    </Mid>
+
+                    <Bottom>
+                        See Collection <BsArrowRight />
+                    </Bottom>
+                </Card>
+
+                <Card style={{backgroundImage:"url(/images/explore9.svg)"}}>
+                    <Top>
+                        <TopImg src="/images/bag3.png"/>
+
+                        <TopText>261 products</TopText>
+                    </Top>
+
+                    <Mid>
+                        <Manu>Manufacturer</Manu>
+
+                        <Back>Bags</Back>
+                    </Mid>
+
+                    <Bottom>
+                        See Collection <BsArrowRight />
+                    </Bottom>
+                </Card>
+
           </Cards>
         </Wrapper>
       </Container>
