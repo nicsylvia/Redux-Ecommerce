@@ -4,6 +4,7 @@ import { MdOutlineDoNotDisturb } from "react-icons/md";
 import pic from "../images/hero.png";
 import { AiOutlineCheck } from "react-icons/ai";
 import Summmary from './Summmary';
+import MainCartPage from './MainCartPage';
 
 
 const CartProps = () => {
@@ -22,28 +23,28 @@ const CartProps = () => {
           <br />
           <Body>
             <Product>
-              <CardProductProps
+              <MainCartPage
                 price={778}
                 dp={pic}
                 name="Round Buckle 1'' Belt"
                 status="Sold Out"
                 sign={<MdOutlineDoNotDisturb />}
               />
-              <CardProductProps
+              <MainCartPage
                 price={778}
                 dp={pic}
                 name="Round Buckle 1'' Belt"
                 status="Sold Out"
                 sign={<MdOutlineDoNotDisturb />}
               />
-              <CardProductProps
+              <MainCartPage
                 price={778}
                 dp={pic}
                 name="Round Buckle 1'' Belt"
                 status="In Stock"
                 sign={<AiOutlineCheck />}
               />
-              <CardProductProps
+              <MainCartPage
                 price={778}
                 dp={pic}
                 name="Round Buckle 1'' Belt"
