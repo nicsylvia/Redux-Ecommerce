@@ -295,6 +295,7 @@ flex-wrap: wrap;
 justify-content: space-between;
 align-items: center;
 margin-top: 50px;
+gap: 3rem;
 `;
 
 const Div = styled.div<{bcc: string}>`
