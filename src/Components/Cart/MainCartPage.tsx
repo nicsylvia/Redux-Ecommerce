@@ -11,7 +11,13 @@ interface iprops {
   sign: any;
 }
 
-const MainCartPage = () => {
+const MainCartPage: React.FC<iprops> = ({
+  price,
+  dp,
+  name,
+  status,
+  sign,
+}) => {
   return (
     <div>
       <div>
