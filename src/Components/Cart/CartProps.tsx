@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { MdOutlineDoNotDisturb } from "react-icons/md";
-import pic from "../images/hero.png";
+import pic from "../Assets/shirt.png";
 import { AiOutlineCheck } from "react-icons/ai";
 import Summmary from './Summmary';
 import MainCartPage from './MainCartPage';

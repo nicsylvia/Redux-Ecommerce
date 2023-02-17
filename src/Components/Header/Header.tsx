@@ -4,6 +4,7 @@ import logo from "../Assets/isaac2.png";
 import { CiSearch } from "react-icons/ci"
 import { BsPerson } from "react-icons/bs"
 import { RiShoppingCartLine } from "react-icons/ri"
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -24,12 +25,12 @@ const Header = () => {
             <CiSearch />
             </p>
 
-            <p>
+            <P to = "/cart">
             <RiShoppingCartLine />
             <Count>
             <span>0</span>
             </Count>
-            </p>
+            </P>
             <p>
               <Button>
 Get Started
@@ -101,10 +102,16 @@ const Profile = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* background-color: red; */
   p{
     margin-right: 30px;
     font-size: 25px;
     display: flex;
 
   }
+`;
+const P = styled(Link)`
+margin-right: 30px;
+    font-size: 25px;
+    display: flex;
 `;
