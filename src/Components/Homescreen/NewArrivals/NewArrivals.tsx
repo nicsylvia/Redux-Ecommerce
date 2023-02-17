@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import {AiOutlineHeart} from "react-icons/ai"
 import {BsFillStarFill} from "react-icons/bs"
-import shirt from "../../Assets/shirt.png"
+import shirt from "../../Assets/shirt.png";
+import { NavLink } from 'react-router-dom';
 
 const NewArrivals = () => {
   return (
@@ -11,7 +12,7 @@ const NewArrivals = () => {
             <Wrapper>
                 <h1>New Arrivals. <span>REY backpacks & bags</span></h1>
                 <Products>
-                    <Display>
+                    <Display to="/productdetails">
                         <First>
                             <Wishlist>
                                 <Heart>
@@ -42,6 +43,7 @@ const NewArrivals = () => {
                         </Second>
                     </Display>
                 </Products>
+            
                 <hr />
             </Wrapper>
         </Container>
@@ -152,7 +154,7 @@ justify-content: flex-end;
 flex-direction: column`
 
 const First =styled.div`
-width: 100%;
+width: 320px;
 height: 65%;
 background-color: #eff4fa;
 border-radius: 30px;
@@ -161,13 +163,18 @@ overflow: hidden;
 ;
 `
 
-const Display = styled.div`
+const Display = styled(NavLink)`
     width: 320px;
     height: 100%;
+    text-decoration: none;
+
 `
 const Products = styled.div`
     width: 100%;
     height: 65vh;
+    /* background-color: #00ff62; */
+    display: flex;
+ 
 `
 
 const Container = styled.div`
@@ -182,7 +189,6 @@ const Wrapper = styled.div`
     width: 90%;
     padding: 10px 0px 10px 0px;
     display: flex;
-    /* background-color: red; */
     flex-direction: column;
     span{
         color: gray;

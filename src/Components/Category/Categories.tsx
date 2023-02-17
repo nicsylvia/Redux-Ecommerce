@@ -139,7 +139,7 @@ const Category = styled.div`
 const Wrapper = styled.div`
   width: 90%;
   padding: 40px 0px 40px 0px;
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   align-items: center;
   justify-content: center;
