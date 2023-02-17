@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import facebook from "../Assets/facebook.svg"
+import youtube from "../Assets/youtube.svg"
+import twitter from "../Assets/twitter.svg"
 
 const Footer = () => {
   return (
@@ -18,22 +21,22 @@ const Footer = () => {
             <Logo>LOGO</Logo>
 
             <Soc>
-                <Socials src="/images/facebook.svg"/>
+                <Socials src={facebook}/>
                 <Text>Facebook</Text>
             </Soc>
 
             <Soc>
-                <Socials src="/images/youtube.svg"/>
+                <Socials src={youtube}/>
                 <Text>Youtube</Text>
             </Soc>
 
             <Soc>
-                <Socials src="/images/twitter.svg"/>
+                <Socials src={facebook}/>
                 <Text>Telegram</Text>
             </Soc>
 
             <Soc>
-                <Socials src="/images/twitter.svg"/>
+                <Socials src={twitter}/>
                 <Text>Twitter</Text>
             </Soc>
         </First>
