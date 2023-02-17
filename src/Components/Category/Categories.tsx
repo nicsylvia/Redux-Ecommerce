@@ -4,6 +4,10 @@ import { RiWomenLine, RiVipCrownLine } from "react-icons/ri"
 import { AiOutlineMan } from "react-icons/ai"
 import { IoDiamondOutline } from "react-icons/io5"
 import { BsArrowRight } from 'react-icons/bs';
+import blackbag from "../Assets/black-bag.png";
+import explore from "../Assets/explore2.svg";
+import blackbag from "../Assets/black-bag.png";
+import blackbag from "../Assets/black-bag.png";
 
 const Categories = () => {
 
@@ -105,7 +109,7 @@ const Categories = () => {
 
                 <Card>
                     <Top>
-                        <TopImg src="/images/black-bag.png"/>
+                        <TopImg src={blackbag}/>
 
                         <TopText>173 products</TopText>
                     </Top>
@@ -114,6 +118,24 @@ const Categories = () => {
                         <Manu>Manufacturer</Manu>
 
                         <Back>BackPack</Back>
+                    </Mid>
+
+                    <Bottom>
+                        See Collection <BsArrowRight />
+                    </Bottom>
+                </Card>
+
+                <Card style={{backgroundImage:"url${explore}"}}>
+                    <Top>
+                        <TopImg src="/images/black-shoe.png"/>
+
+                        <TopText>254 products</TopText>
+                    </Top>
+
+                    <Mid>
+                        <Manu>Manufacturer</Manu>
+
+                        <Back>Shoe</Back>
                     </Mid>
 
                     <Bottom>
@@ -202,7 +224,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
 align-items: center;
-gap: 3rem;
+margin-top: 50px;
 `;
 
 const Div = styled.div<{bcc: string}>`
