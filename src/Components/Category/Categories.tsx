@@ -5,6 +5,11 @@ import { AiOutlineMan } from "react-icons/ai"
 import { IoDiamondOutline } from "react-icons/io5"
 import { BsArrowRight } from 'react-icons/bs';
 import blackbag from "../Assets/black-bag.png";
+import cloth from "../Assets/black-bag.png";
+import green from "../Assets/black-bag.png";
+import bag3 from "../Assets/black-bag.png";
+import short from "../Assets/black-bag.png";
+import blackshoe from "../Assets/black-shoe.png";
 import explore1 from "../Assets/explore1.svg";
 import explore2 from "../Assets/explore2.svg";
 import explore3 from "../Assets/explore3.svg";
@@ -110,7 +115,7 @@ const Categories = () => {
 
           <Cards>
 
-                <Card>
+                <Card style={{backgroundImage: "url(explore1)"}}>
                     <Top>
                         <TopImg src={blackbag}/>
 
@@ -128,9 +133,9 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url${explore}"}}>
+                <Card style={{backgroundImage:"url(explore2)"}}>
                     <Top>
-                        <TopImg src="/images/black-shoe.png"/>
+                        <TopImg src={blackshoe}/>
 
                         <TopText>254 products</TopText>
                     </Top>
@@ -145,9 +150,9 @@ const Categories = () => {
                         See Collection <BsArrowRight />
                     </Bottom>
                 </Card>
-                <Card style={{backgroundImage:"url(/images/explore3.svg)"}}>
+                <Card style={{backgroundImage:"url(explore3)"}}>
                     <Top>
-                        <TopImg src="/images/cloth.png"/>
+                        <TopImg src={cloth} />
 
                         <TopText>173 products</TopText>
                     </Top>
@@ -163,9 +168,9 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(/images/explore5.svg)"}}>
+                <Card style={{backgroundImage:"url(explore5)"}}>
                     <Top>
-                        <TopImg src="/images/green-sweat.png"/>
+                        <TopImg src={green}/>
 
                         <TopText>279 products</TopText>
                     </Top>
@@ -181,9 +186,9 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(/images/explore6.svg)"}}>
+                <Card style={{backgroundImage:"url(explore6)"}}>
                     <Top>
-                        <TopImg src="/images/short.png"/>
+                        <TopImg src={short}/>
 
                         <TopText>320 products</TopText>
                     </Top>
@@ -199,9 +204,9 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(/images/explore9.svg)"}}>
+                <Card style={{backgroundImage:"url(explore9)"}}>
                     <Top>
-                        <TopImg src="/images/bag3.png"/>
+                        <TopImg src={bag3}/>
 
                         <TopText>261 products</TopText>
                     </Top>
