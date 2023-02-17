@@ -13,9 +13,9 @@ import blackshoe from "../Assets/black-shoe.png";
 import explore1 from "../Assets/explore1.svg";
 import explore2 from "../Assets/explore2.svg";
 import explore3 from "../Assets/explore3.svg";
-import explore5 from "../Assets/explore5.svg";
-import explore6 from "../Assets/explore6.svg";
-import explore9 from "../Assets/explore9.svg";
+import explore4 from "../Assets/explore5.svg";
+import explore5 from "../Assets/explore6.svg";
+import explore6 from "../Assets/explore9.svg";
 
 const Categories = () => {
 
@@ -115,7 +115,7 @@ const Categories = () => {
 
           <Cards>
 
-                <Card style={{backgroundImage: "url(explore1)"}}>
+                <Card style={{backgroundImage: `url(${explore1})`}}>
                     <Top>
                         <TopImg src={blackbag}/>
 
@@ -133,7 +133,7 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(explore2)"}}>
+                <Card style={{backgroundImage: `url(${explore2})`}}>
                     <Top>
                         <TopImg src={blackshoe}/>
 
@@ -150,7 +150,7 @@ const Categories = () => {
                         See Collection <BsArrowRight />
                     </Bottom>
                 </Card>
-                <Card style={{backgroundImage:"url(explore3)"}}>
+                <Card style={{backgroundImage: `url(${explore3})`}}>
                     <Top>
                         <TopImg src={cloth} />
 
@@ -168,7 +168,7 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(explore5)"}}>
+                <Card style={{backgroundImage: `url(${explore4})`}}>
                     <Top>
                         <TopImg src={green}/>
 
@@ -186,7 +186,7 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(explore6)"}}>
+                <Card style={{backgroundImage: `url(${explore5})`}}>
                     <Top>
                         <TopImg src={short}/>
 
@@ -204,7 +204,7 @@ const Categories = () => {
                     </Bottom>
                 </Card>
 
-                <Card style={{backgroundImage:"url(explore9)"}}>
+                <Card style={{backgroundImage: `url(${explore6})`}}>
                     <Top>
                         <TopImg src={bag3}/>
 
