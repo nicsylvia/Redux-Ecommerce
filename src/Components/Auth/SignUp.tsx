@@ -41,9 +41,26 @@ const SignUp = () => {
 		},
 	});
 
-  return (
-    <div>SignUp</div>
-  )
+  const Submit = handleSubmit((data) => {
+		post.mutate(data);
+		reset();
+	});
+
+	return (
+		<Container>
+			<Card onSubmit={Submit}>
+				<h3>Register</h3>
+				<input {...register("name")} placeholder='Enter your name' />
+				<p>{errors?.name && errors?.name?.message}</p>
+				<input {...register("email")} placeholder='Enter your email' />
+				<p>{errors?.email && errors?.email?.message}</p>
+				<input {...register("password")} placeholder='Enter your password' />
+				<p>{errors?.password && errors?.password?.message}</p>
+				<MainButton type='submit'>Register</MainButton>
+			</Card>
+		</Container>
+	);
+
 }
 
 export default SignUp;
