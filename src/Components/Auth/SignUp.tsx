@@ -21,7 +21,17 @@ const SignUp = () => {
 		.required();
 
 	type formData = yup.InferType<typeof schema>;
-  
+
+  const {
+		handleSubmit,
+		formState: { errors },
+		reset,
+		register,
+	} = useForm<formData>({
+		resolver: yupResolver(schema),
+	});
+
+
   return (
     <div>SignUp</div>
   )
