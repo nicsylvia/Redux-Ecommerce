@@ -10,6 +10,18 @@ import { UseAppDispach } from "../Global/Store";
 import { loginUser } from "../Global/ReduxState";
 
 const SignUp = () => {
+
+  const dispatch = UseAppDispach();
+	const schema = yup
+		.object({
+			name: yup.string().required("field must be required"),
+			email: yup.string().email().required(),
+			password: yup.string().min(9).required(),
+		})
+		.required();
+
+	type formData = yup.InferType<typeof schema>;
+  
   return (
     <div>SignUp</div>
   )
