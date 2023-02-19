@@ -32,6 +32,15 @@ const SignUp = () => {
 	});
 
 
+  const post = useMutation({
+		mutationKey: ["postUser"],
+		mutationFn: CreateUser,
+		onSuccess: (data) => {
+			// console.log(data.data);
+			dispatch(loginUser(data.data));
+		},
+	});
+
   return (
     <div>SignUp</div>
   )
