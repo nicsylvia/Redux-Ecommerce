@@ -43,3 +43,35 @@ const SinglePage = () => {
 		</Container>
 	);
 };
+
+export default SinglePage;
+
+const DescHold = styled.div`
+	width: 100%;
+	background-color: #fafbfd;
+	padding: 10px;
+	margin-top: 30px;
+	font-weight: 700;
+`;
+
+const ButtonHold = styled.div`
+	display: flex;
+	align-items: center;
+`;
+
+const But = styled.div`
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background-color: #fafbfd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	font-size: 25px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	margin-right: 20px;
+	cursor: pointer;
+	/* margin-left: 20px; */
+`;
