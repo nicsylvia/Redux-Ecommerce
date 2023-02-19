@@ -1,6 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
 
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import { CreateUser } from "../Api/Api";
+import { UseAppDispach } from "../Global/Store";
+import { loginUser } from "../Global/ReduxState";
+
 const SignUp = () => {
   return (
     <div>SignUp</div>
