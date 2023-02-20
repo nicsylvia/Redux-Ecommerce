@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
 import Login from '../Auth/Login'
-import SignUp from '../Auth/SignUp'
+// import SignUp from '../Auth/SignUp'
 import Cart from '../Cart/Cart'
 import ProductDetails from '../DetailScreen/ProductDetails'
 import Home from '../Home/Home'
@@ -18,7 +18,7 @@ const AllRoutes = () => {
         },
         {
             path: "/signup",
-            element: <SignUp />
+            // element: <SignUp />
         },
         {
             path: "/login",
