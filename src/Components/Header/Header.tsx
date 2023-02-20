@@ -32,8 +32,8 @@ const Header = () => {
             </Count>
             </P>
             <p>
-              <Button>
-Get Started
+              <Button to = "/signup">
+                Get Started
               </Button>
             </p>
           </Profile>
@@ -45,14 +45,15 @@ Get Started
 
 export default Header;
 
-const Button = styled.button`
+const Button = styled(Link)`
 padding: 10px 20px;
 background-color: #3d4fd7d6;
 border: 0;
 border-radius: 20px;
 font-size: 16px;
 font-weight: 500;
-color: #fff
+color: #fff;
+text-decoration: none;
 
 `
 
