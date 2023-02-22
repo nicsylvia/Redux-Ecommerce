@@ -1,26 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { PayloadAction } from "@reduxjs/toolkit/dist/createAction";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserData {
 	name: string;
 	email: string;
 	password: string;
+	confirmPassword: string
 }
 
 const initialState = {
-	currentUser: {} || null,
-};
+	currentUser : {} as UserData | null
+}
 
 const ReduxState = createSlice({
-	name: "ecomerce",
-	initialState,
-	reducers: {
-		loginUser: (state, { payload }: PayloadAction<UserData>) => {
-			state.currentUser = payload;
-		},
-	},
+  name: "First-Ecommerce",
+  initialState,
+  reducers: {
+	UserLogin: (state, {payload}: PayloadAction<UserData>) =>{
+		state.currentUser = payload
+	}
+  }
 });
 
-export const { loginUser } = ReduxState.actions;
+export const {} = ReduxState.actions
 
-export default ReduxState.reducer;
+export default ReduxState.reducer
