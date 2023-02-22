@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Provider } from 'react-redux';
+import { Store } from './Components/Global/Store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,12 +16,14 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
-<BrowserRouter>
-<QueryClientProvider client={queryClient}>
-  <App />
-  <ReactQueryDevtools />
-</QueryClientProvider>
-</BrowserRouter>
+  <BrowserRouter>
+    <Provider store={Store}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </Provider>
+  </BrowserRouter>
   </React.StrictMode>
 );
 

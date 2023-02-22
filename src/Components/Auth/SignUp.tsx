@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMutation } from '@tanstack/react-query';
 import React from 'react'
 import styled from 'styled-components';
@@ -6,8 +6,14 @@ import { CreateNewUser } from '../API/Api';
 import * as yup from "yup";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
+import { UserLogin } from '../Global/ReduxState';
+import { useAppDispatch } from '../Global/Store';
 
 const SignUp = () => {
+	 
+	const dispatch = useAppDispatch();
+
+	const queryClient = useQueryClient();
 
 	// Setting up the schemas for our form using yup validator
 	const Schema = yup.object({
@@ -24,7 +30,11 @@ const SignUp = () => {
 	// Query function to be able to create new users
 	const RegisterUsers = useMutation({
 		mutationKey: ["NewUsers"],
-		mutationFn: CreateNewUser
+		mutationFn: CreateNewUser,
+		onSuccess: (data) =>{
+			dispatch(UserLogin(data.data))
+			queryClient.invalidateQueries(["NewUsers"])
+		}
 	});
 
 	const NewUsers = handleSubmit((data) =>{
