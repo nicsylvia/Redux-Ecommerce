@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from 'react-redux';
 import { Store } from './Components/Global/Store';
 import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
 let userPersistor = persistStore(Store)
 
@@ -21,10 +22,12 @@ root.render(
   <React.StrictMode>
   <BrowserRouter>
     <Provider store={Store}>
+      <PersistGate loading = {null} persistor = {userPersistor}>
       <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools />
       </QueryClientProvider>
+      </PersistGate>
     </Provider>
   </BrowserRouter>
   </React.StrictMode>
