@@ -38,7 +38,7 @@ const SignUp = () => {
 	});
 
 	const NewUsers = handleSubmit((data) =>{
-		RegisterUsers.mutate(data),
+		RegisterUsers.mutate(data)
 		reset();
 	})
 	console.log(NewUsers)
