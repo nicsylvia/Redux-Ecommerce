@@ -3,11 +3,19 @@ import { useMutation } from '@tanstack/react-query';
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { CreateNewUser } from '../API/Api';
+import * as yup from "yup"
 
 const SignUp = () => {
 
+	const Schema = yup.object({
+		name: yup.string().required(),
+		email: yup.string().email().required(),
+		password: yup.string().min(8).required(),
+	})
+
 	// Query function to be able to create new users
 	const RegisterUsers = useMutation({
+		mutationKey: ["NewUsers"],
 		mutationFn: CreateNewUser
 	});
 
@@ -15,17 +23,20 @@ const SignUp = () => {
 		RegisterUsers.mutate({
 			name,
 			email,
-			password
+			password,
+			confirmPassword
 		})
 	};
+	console.log(NewUsers)
 
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [confirmPassword, setConfirmPassword] = useState("")
 
 	return (
 		<Container>
-			<Card>
+			<Card onSubmit={NewUsers}>
 				<h3>Register</h3>
 				<input 
 				onChange={(e) =>{
@@ -45,7 +56,12 @@ const SignUp = () => {
 				}}
 				placeholder='Enter your password' />
 				{/* <p>{errors?.password && errors?.password?.message}</p> */}
-				<MainButton type='submit'>Register</MainButton>
+				<input
+				onChange={(e) =>{
+					setConfirmPassword(e.target.value)
+				}}
+				placeholder='Confirm your password' />
+				<MainButton onClick={NewUsers} type='submit'>Register</MainButton>
 			</Card>
 		</Container>
 	);
