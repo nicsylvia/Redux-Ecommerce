@@ -12,6 +12,25 @@ import {
 	REGISTER,
 } from "redux-persist";
 
+const persistConfig = {
+	key: 'Ecommerce',
+	version: 1,
+	Storage
+  };
+
+  const userPersistedReducer = persistReducer(persistConfig, myReducer)
+   
+
+  export const store = configureStore({
+		reducer: userPersistedReducer,
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware({
+				serializableCheck: {
+					ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+				},
+			}),
+	});
+
 export const Store = configureStore({
 
 	reducer: {
