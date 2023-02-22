@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { CreateNewUser } from '../API/Api';
 import * as yup from "yup";
 import { useForm } from 'react-hook-form';
+import { yupResolver } from "@hookform/resolvers/yup"
 
 const SignUp = () => {
 
@@ -18,7 +19,7 @@ const SignUp = () => {
 
 	type formData = yup.InferType<typeof Schema>
 
-	const {} = useForm
+	const {handleSubmit, reset, formState: {errors }, register} = useForm<formData>({resolver: yupResolver(Schema)})
 
 	// Query function to be able to create new users
 	const RegisterUsers = useMutation({
@@ -26,47 +27,32 @@ const SignUp = () => {
 		mutationFn: CreateNewUser
 	});
 
-	const NewUsers = () =>{
-		RegisterUsers.mutate({
-			name,
-			email,
-			password,
-			confirmPassword
-		})
-	};
+	const NewUsers = handleSubmit((data) =>{
+		RegisterUsers.mutate(data),
+		reset();
+	})
 	console.log(NewUsers)
 
-	const [name, setName] = useState("")
-	const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
-	const [confirmPassword, setConfirmPassword] = useState("")
+	
 
 	return (
 		<Container>
 			<Card onSubmit={NewUsers}>
 				<h3>Register</h3>
 				<input 
-				onChange={(e) =>{
-					setName(e.target.value)
-				}}
+				{...register("name")}
 				placeholder='Enter your name' />
 				{/* <p>{errors?.name && errors?.name?.message}</p> */}
 				<input
-				onChange={(e) =>{
-					setEmail(e.target.value)
-				}}
+				{...register("email")}
 				placeholder='Enter your email' />
 				{/* <p>{errors?.email && errors?.email?.message}</p> */}
 				<input
-				onChange={(e) =>{
-					setPassword(e.target.value)
-				}}
+				{...register("password")}
 				placeholder='Enter your password' />
 				{/* <p>{errors?.password && errors?.password?.message}</p> */}
 				<input
-				onChange={(e) =>{
-					setConfirmPassword(e.target.value)
-				}}
+				{...register("confirmPassword")}
 				placeholder='Confirm your password' />
 				<MainButton onClick={NewUsers} type='submit'>Register</MainButton>
 			</Card>
