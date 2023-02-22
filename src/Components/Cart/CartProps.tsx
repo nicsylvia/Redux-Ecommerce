@@ -66,13 +66,13 @@ const CartProps = () => {
 export default CartProps;
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const Wrapper = styled.div`
-  width: calc(100vw - 200px);
+  width: calc(100% - 200px);
 `;
 const Head = styled.div`
   height: 230px;
