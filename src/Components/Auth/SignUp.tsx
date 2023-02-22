@@ -3,15 +3,22 @@ import { useMutation } from '@tanstack/react-query';
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { CreateNewUser } from '../API/Api';
-import * as yup from "yup"
+import * as yup from "yup";
+import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
 
+	// Setting up the schemas for our form using yup validator
 	const Schema = yup.object({
 		name: yup.string().required(),
 		email: yup.string().email().required(),
 		password: yup.string().min(8).required(),
+		confirmPassword: yup.string().oneOf([yup.ref("password")]).required(),
 	})
+
+	type formData = yup.InferType<typeof Schema>
+
+	const {} = useForm
 
 	// Query function to be able to create new users
 	const RegisterUsers = useMutation({
