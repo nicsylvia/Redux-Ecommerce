@@ -29,10 +29,6 @@ const AllRoutes = () => {
             element: <ProductDetails />
         },
         {
-            path: "/viewall",
-            element: <ViewAll />
-        },
-        {
             path: "/cart",
             element: <Cart />
         }

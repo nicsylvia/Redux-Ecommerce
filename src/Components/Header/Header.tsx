@@ -11,7 +11,9 @@ const Header = () => {
     <div>
       <Container>
         <Wrapper>
+          <Img to = "/">
           <Logo src={logo} />
+          </Img>
           <Navigation>
             <Nav to="/">Home</Nav>
             <Nav to="/">About</Nav>
@@ -84,6 +86,8 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+const Img = styled(Link)`
+`;
 const Logo = styled.img`
   width: 150px;
   height: 150px;
@@ -96,6 +100,8 @@ const Navigation = styled.div`
 `;
 const Nav = styled(Link)`
   margin-right: 30px;
+  text-decoration: none;
+  color: black;
 `;
 const Profile = styled.div`
   display: flex;
@@ -110,7 +116,8 @@ const Profile = styled.div`
   }
 `;
 const P = styled(Link)`
-margin-right: 30px;
+  margin-right: 30px;
     font-size: 25px;
     display: flex;
+    text-decoration: none;
 `;
