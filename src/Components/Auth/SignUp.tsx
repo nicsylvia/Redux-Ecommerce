@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMutation } from '@tanstack/react-query';
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import { CreateNewUser } from '../API/Api';
 import * as yup from "yup";
