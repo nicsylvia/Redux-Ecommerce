@@ -6,13 +6,14 @@ import { BsPerson } from "react-icons/bs"
 import { RiShoppingCartLine } from "react-icons/ri"
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../Global/Store';
+import { UserLogOut } from '../Global/ReduxState';
 
 const Header = () => {
 
   const loggedInUser = useAppSelector((state) => state.myReducer.currentUser);
 
   const dispatch = useAppDispatch();
-  
+
   return (
     <div>
       <Container>
@@ -38,9 +39,21 @@ const Header = () => {
             </Count>
             </P>
             <p>
-              <Button to = "/signup">
-                Get Started
-              </Button>
+              {
+                loggedInUser?.name ? (
+                  <Button
+                  onClick={() =>{
+                    dispatch(UserLogOut())
+                  }}
+                   to = "/">
+                    Log Out
+                  </Button>
+                ) : (
+                  <Button to = "/signup">
+                    Get Started
+                  </Button>
+                )
+              }
             </p>
           </Profile>
         </Wrapper>

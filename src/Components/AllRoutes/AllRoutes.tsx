@@ -6,8 +6,6 @@ import Cart from '../Cart/Cart'
 import ProductDetails from '../DetailScreen/ProductDetails'
 import Home from '../Home/Home'
 import HomeScreen from '../Homescreen/HomeScreen'
-import Product from '../Products/Product'
-import ViewAll from '../ViewAll/ViewAll'
 
 const AllRoutes = () => {
 
