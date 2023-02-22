@@ -13,12 +13,10 @@ const Header = () => {
         <Wrapper>
           <Logo src={logo} />
           <Navigation>
-            <Nav>Men</Nav>
-            <Nav>Women</Nav>
-            <Nav>Beauty</Nav>
-            <Nav>Sports</Nav>
-            <Nav>Templates</Nav>
-            <Nav>Explore</Nav>
+            <Nav to="/">Home</Nav>
+            <Nav to="/">About</Nav>
+            <Nav to="/">Services</Nav>
+            <Nav to="/productdetails">Products</Nav>
           </Navigation>
           <Profile>
             <p>
@@ -96,7 +94,7 @@ const Navigation = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const Nav = styled.div`
+const Nav = styled(Link)`
   margin-right: 30px;
 `;
 const Profile = styled.div`
