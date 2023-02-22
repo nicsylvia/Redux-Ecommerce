@@ -1,13 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMutation } from '@tanstack/react-query';
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import { CreateNewUser } from '../API/Api';
 
 const SignUp = () => {
 
+	// Query function to be able to create new users
 	const RegisterUsers = useMutation({
+		mutationFn: CreateNewUser
+	});
 
-	})
+	const NewUsers = () =>{
+		RegisterUsers.mutate({
+			name,
+			email,
+			password
+		})
+	};
+
+	const [name, setName] = useState("")
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
 
 	return (
 		<Container>
