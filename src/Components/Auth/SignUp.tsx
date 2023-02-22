@@ -27,11 +27,23 @@ const SignUp = () => {
 		<Container>
 			<Card>
 				<h3>Register</h3>
-				<input  placeholder='Enter your name' />
+				<input 
+				onChange={(e) =>{
+					setName(e.target.value)
+				}}
+				placeholder='Enter your name' />
 				{/* <p>{errors?.name && errors?.name?.message}</p> */}
-				<input placeholder='Enter your email' />
+				<input
+				onChange={(e) =>{
+					setEmail(e.target.value)
+				}}
+				placeholder='Enter your email' />
 				{/* <p>{errors?.email && errors?.email?.message}</p> */}
-				<input placeholder='Enter your password' />
+				<input
+				onChange={(e) =>{
+					setPassword(e.target.value)
+				}}
+				placeholder='Enter your password' />
 				{/* <p>{errors?.password && errors?.password?.message}</p> */}
 				<MainButton type='submit'>Register</MainButton>
 			</Card>
