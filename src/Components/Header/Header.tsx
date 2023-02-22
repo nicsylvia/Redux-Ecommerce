@@ -5,8 +5,14 @@ import { CiSearch } from "react-icons/ci"
 import { BsPerson } from "react-icons/bs"
 import { RiShoppingCartLine } from "react-icons/ri"
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../Global/Store';
 
 const Header = () => {
+
+  const loggedInUser = useAppSelector((state) => state.myReducer.currentUser);
+
+  const dispatch = useAppDispatch();
+  
   return (
     <div>
       <Container>
