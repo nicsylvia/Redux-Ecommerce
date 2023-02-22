@@ -1,7 +1,13 @@
+import { useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import React from 'react'
 import styled from 'styled-components';
 
 const SignUp = () => {
+
+	const RegisterUsers = useMutation({
+
+	})
 
 	return (
 		<Container>
