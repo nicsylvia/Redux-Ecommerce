@@ -4,15 +4,24 @@ import {BsFillStarFill} from "react-icons/bs"
 import shirt from "../Assets/shirt.png";
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { useQuery } from '@tanstack/react-query';
 
 const AllProducts = () => {
+
+    // Query funtion to get all products
+    const GettingProducts = useQuery({
+        queryFn: AllProducts,
+        queryKey: ["All-Products"]
+    })
   return (
     <div>
     <Container>
         <Wrapper>
             <h1>New Arrivals. <span>All Products</span></h1>
             <Products>
-                <Display to="/productdetails">
+                {
+                    GettingProducts?.data?.map((product: any) =>(
+                        <Display key={product._id} to="/productdetails">
                     <First>
                         <Wishlist>
                             <Heart>
@@ -26,14 +35,14 @@ const AllProducts = () => {
                     </First>
                     <Second>
                         <One>
-                            <h2>Leather Gloves</h2>
+                            <h2>{product.title}</h2>
                         </One>
                         <Two>
-                            <h3>perfect mint green</h3>
+                            <h3>{product.desc}</h3>
                         </Two>
                         <Three>
                             <Four>
-                                $42.00
+                                {product.price}
                             </Four>
                             <Five>
                                 <span><BsFillStarFill style={{color : "#FBBF24"}}/></span>
@@ -42,6 +51,8 @@ const AllProducts = () => {
                         </Three>
                     </Second>
                 </Display>
+                    ))
+                }
             </Products>
         </Wrapper>
     </Container>
