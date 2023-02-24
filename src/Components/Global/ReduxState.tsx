@@ -7,6 +7,15 @@ interface UserData {
 	confirmPassword: string
 }
 
+interface CartData {
+	title: string;
+	desc: string;
+	price: number;
+	CartQuantity: number;
+	_id: string;
+	category: string;
+}
+
 const initialState = {
 	currentUser : {} as UserData | null
 }
