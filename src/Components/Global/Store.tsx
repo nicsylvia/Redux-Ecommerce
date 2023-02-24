@@ -13,15 +13,14 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-	key: 'Ecommerce',
+	key: 'ecommerces',
 	version: 1,
 	Storage
   };
 
   const userPersistedReducer = persistReducer(persistConfig, myReducer)
-   
 
-  export const store = configureStore({
+  export const Store = configureStore({
 		reducer: userPersistedReducer,
 		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware({
@@ -31,12 +30,11 @@ const persistConfig = {
 			}),
 	});
 
-export const Store = configureStore({
-
-	reducer: {
-		myReducer
-	}
-});
+// export const Store = configureStore({
+// 	reducer: {
+// 		myReducer
+// 	}
+// });
 
 // Define your dispatch and your selector
 
