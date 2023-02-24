@@ -24,7 +24,7 @@ const Header = () => {
             <Nav to="/">Home</Nav>
             <Nav to="/">About</Nav>
             <Nav to="/">Services</Nav>
-            <Nav to="/productdetails">Products</Nav>
+            <Nav to="/all-products">Products</Nav>
           </Navigation>
           <Profile>
             <p>

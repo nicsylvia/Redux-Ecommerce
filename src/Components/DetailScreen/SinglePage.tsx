@@ -29,9 +29,6 @@ const SinglePage = () => {
 						<But>-</But>
 						<Count>0</Count>
 						<But
-						onClick={() =>{
-							dispatch(addToCart())
-						}}
 						style={{ marginLeft: "20px" }}>+</But>
 					</ButtonHold>
 					<MainButton>Add To Cart</MainButton>

@@ -3,6 +3,7 @@ import { useRoutes } from 'react-router-dom'
 import Login from '../Auth/Login'
 import SignUp from '../Auth/SignUp'
 import Cart from '../Cart/Cart'
+import AllProducts from '../DetailScreen/AllProducts'
 import ProductDetails from '../DetailScreen/ProductDetails'
 import Home from '../Home/Home'
 import HomeScreen from '../Homescreen/HomeScreen'
@@ -21,6 +22,10 @@ const AllRoutes = () => {
         {
             path: "/login",
             element: <Login />
+        },
+        {
+            path: "/all-products",
+            element: <AllProducts />
         },
         {
             path: "/productdetails",
