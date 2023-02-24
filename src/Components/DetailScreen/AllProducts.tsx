@@ -1,4 +1,7 @@
 import React from 'react'
+import {AiOutlineHeart} from "react-icons/ai"
+import {BsFillStarFill} from "react-icons/bs"
+import shirt from "../Assets/shirt.png";
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -7,7 +10,7 @@ const AllProducts = () => {
     <div>
     <Container>
         <Wrapper>
-            <h1>New Arrivals. <span>REY backpacks & bags</span></h1>
+            <h1>New Arrivals. <span>All Products</span></h1>
             <Products>
                 <Display to="/productdetails">
                     <First>
@@ -40,8 +43,6 @@ const AllProducts = () => {
                     </Second>
                 </Display>
             </Products>
-        
-            <hr />
         </Wrapper>
     </Container>
 </div>
