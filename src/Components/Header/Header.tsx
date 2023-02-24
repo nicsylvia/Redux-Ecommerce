@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from "../Assets/isaac2.png";
 import { CiSearch } from "react-icons/ci"
-import { BsPerson } from "react-icons/bs"
 import { RiShoppingCartLine } from "react-icons/ri"
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../Global/Store';

@@ -22,17 +22,17 @@ const persistConfig = {
   
 const persistedReducer = persistReducer(persistConfig, myReducer)
 
-export const store = configureStore({
-	reducer: persistedReducer,
-	middleware: (getDefaultMiddleware) =>
-	  getDefaultMiddleware({
-		serializableCheck: {
-		  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-		},
-	  }),
-  })
+// export const store = configureStore({
+// 	reducer: persistedReducer,
+// 	middleware: (getDefaultMiddleware) =>
+// 	  getDefaultMiddleware({
+// 		serializableCheck: {
+// 		  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+// 		},
+// 	  }),
+//   })
 
-export const Store = configureStore({
+export const store = configureStore({
 	reducer: {
 		myReducer
 	}
@@ -40,6 +40,6 @@ export const Store = configureStore({
 
 // Define your dispatch and your selector
 
-export const useAppDispatch: () => typeof Store.dispatch = useDispatch;
+export const useAppDispatch: () => typeof store.dispatch = useDispatch;
 
-export const useAppSelector: TypedUseSelectorHook<ReturnType<typeof Store.getState>> = useSelector;
+export const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
