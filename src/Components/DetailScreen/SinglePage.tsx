@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Global/ReduxState";
 
 const SinglePage = () => {
+
+	const dispatch = useDispatch();
 	return (
 		<Container>
 			<First></First>
@@ -24,7 +28,11 @@ const SinglePage = () => {
 					<ButtonHold>
 						<But>-</But>
 						<Count>0</Count>
-						<But style={{ marginLeft: "20px" }}>+</But>
+						<But
+						onClick={() =>{
+							dispatch(addToCart())
+						}}
+						style={{ marginLeft: "20px" }}>+</But>
 					</ButtonHold>
 					<MainButton>Add To Cart</MainButton>
 				</Holder>
