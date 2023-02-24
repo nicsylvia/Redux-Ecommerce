@@ -22,21 +22,21 @@ const persistConfig = {
   
 const persistedReducer = persistReducer(persistConfig, myReducer)
 
-// export const store = configureStore({
-// 	reducer: persistedReducer,
-// 	middleware: (getDefaultMiddleware) =>
-// 	  getDefaultMiddleware({
-// 		serializableCheck: {
-// 		  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-// 		},
-// 	  }),
-//   })
-
 export const store = configureStore({
-	reducer: {
-		myReducer
-	}
-});
+	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+	  getDefaultMiddleware({
+		serializableCheck: {
+		  ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+		},
+	  }),
+  })
+
+// export const store = configureStore({
+// 	reducer: {
+// 		myReducer
+// 	}
+// });
 
 // Define your dispatch and your selector
 

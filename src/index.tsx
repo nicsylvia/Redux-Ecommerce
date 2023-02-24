@@ -22,12 +22,12 @@ root.render(
   <React.StrictMode>
   <BrowserRouter>
     <Provider store={store}>
-      {/* <PersistGate loading = {null} persistor = {userPersistor}> */}
+      <PersistGate loading = {null} persistor = {userPersistor}>
       <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools />
       </QueryClientProvider>
-      {/* </PersistGate> */}
+      </PersistGate>
     </Provider>
   </BrowserRouter>
   </React.StrictMode>

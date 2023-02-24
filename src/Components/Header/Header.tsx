@@ -9,7 +9,7 @@ import { UserLogOut } from '../Global/ReduxState';
 
 const Header = () => {
 
-  const loggedInUser = useAppSelector((state) => state.myReducer.currentUser);
+  const loggedInUser = useAppSelector((state) => state.currentUser);
 
   const dispatch = useAppDispatch();
 
