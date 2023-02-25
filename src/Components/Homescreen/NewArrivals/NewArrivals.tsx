@@ -4,15 +4,24 @@ import {AiOutlineHeart} from "react-icons/ai"
 import {BsFillStarFill} from "react-icons/bs"
 import shirt from "../../Assets/shirt.png";
 import { NavLink } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { GetAllProducts } from '../../API/Api';
 
 const NewArrivals = () => {
+
+    const AllProducts = useQuery({
+        queryKey: ["Products"],
+        queryFn: GetAllProducts
+    })
   return (
     <div>
         <Container>
             <Wrapper>
                 <h1>New Arrivals. <span>REY backpacks & bags</span></h1>
                 <Products>
-                    <Display to="/productdetails">
+                    {
+                        AllProducts?.data?.data.map((product: any) =>(
+                            <Display to={`/productdetails/${product._id}`}>
                         <First>
                             <Wishlist>
                                 <Heart>
@@ -42,6 +51,8 @@ const NewArrivals = () => {
                             </Three>
                         </Second>
                     </Display>
+                        ))
+                    }
                 </Products>
             
                 <hr />
@@ -167,6 +178,7 @@ const Display = styled(NavLink)`
     width: 320px;
     height: 100%;
     text-decoration: none;
+    margin: 20px;
 
 `
 const Products = styled.div`

@@ -6,26 +6,43 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
 import { GetAllProducts } from "../API/Api";
-import { Audio } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
 
 
 const AllProducts = () => {
 
+    // For loading :
+<Oval
+  height={80}
+  width={80}
+  color="#4fa94d"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel='oval-loading'
+  secondaryColor="#4fa94d"
+  strokeWidth={2}
+  strokeWidthSecondary={2}
+
+/>
     // Query funtion to get all products
     const GettingProducts = useQuery({
         queryKey: ["All-Products"],
         queryFn: GetAllProducts,
     })
 
-    // For loading :
-    
-
   return (
+    
     <div>
     <Container>
+                
         <Wrapper>
             <h1>New Arrivals. <span>All Products</span></h1>
+                
             <Products>
+                {
+                    GettingProducts.isLoading ? <Oval /> : null
+                }
                 {
                     GettingProducts?.data?.data.map((product: any) =>(
                         <Display to={`/productdetails/${product._id}`}>
@@ -188,6 +205,7 @@ const Display = styled(NavLink)`
     width: 320px;
     height: 100%;
     text-decoration: none;
+    margin: 20px;
     /* background-color: red; */
 
 `
@@ -196,7 +214,8 @@ const Products = styled.div`
     height: 65vh;
     /* background-color: #00ff62; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
  
 `
 
