@@ -5,12 +5,13 @@ import pic from "../Assets/shirt.png";
 import { AiOutlineCheck } from "react-icons/ai";
 import Summmary from './Summmary';
 import MainCartPage from './MainCartPage';
-import { useAppDispatch } from '../Global/Store';
+import { useAppDispatch, useAppSelector } from '../Global/Store';
 import { clearCart } from '../Global/ReduxState';
 
 
 const CartProps = () => {
 
+  const readFromMyCart = useAppSelector((state) => state.cart)
   const dispatch = useAppDispatch();
   return (
     <div>
@@ -33,15 +34,19 @@ const CartProps = () => {
           <br />
           <br />
           <Body>
-            <Product>
+           {
+            readFromMyCart.map((props) =>(
+              <Product>
               <MainCartPage
-                price={778}
+                price={props.price}
                 dp={pic}
-                name="Round Buckle 1'' Belt"
+                name= {props.title}
                 status="Sold Out"
                 sign={<MdOutlineDoNotDisturb />}
               />
             </Product>
+            ))
+           }
             <Summary>
               <Summmary />
             </Summary>
