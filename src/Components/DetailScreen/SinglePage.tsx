@@ -47,7 +47,9 @@ const SinglePage = () => {
 				<Holder>
 					<ButtonHold>
 						<But>-</But>
-						<Count>0</Count>
+						<Count>
+							{readSingleItem[0]?.CartQuantity}
+						</Count>
 						<But
 						onClick={() =>{
 							dispatch(addToCart(OneProducts?.data?.data))

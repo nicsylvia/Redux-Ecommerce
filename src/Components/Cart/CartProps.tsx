@@ -5,19 +5,30 @@ import pic from "../Assets/shirt.png";
 import { AiOutlineCheck } from "react-icons/ai";
 import Summmary from './Summmary';
 import MainCartPage from './MainCartPage';
+import { useAppDispatch } from '../Global/Store';
+import { clearCart } from '../Global/ReduxState';
 
 
 const CartProps = () => {
+
+  const dispatch = useAppDispatch();
   return (
     <div>
         <div>
       <Container>
         <Wrapper>
           <Head>
+            <Div>
             <Title>Shopping Cart</Title>
             <Split>
               Homepage / Clothing Categories / <span> Shopping Cart</span>
             </Split>
+            </Div>
+            <Btn onClick={() =>{
+              dispatch(clearCart())
+            }} >
+              Clear Cart
+            </Btn>
           </Head>
           <br />
           <br />
@@ -30,27 +41,7 @@ const CartProps = () => {
                 status="Sold Out"
                 sign={<MdOutlineDoNotDisturb />}
               />
-              <MainCartPage
-                price={778}
-                dp={pic}
-                name="Round Buckle 1'' Belt"
-                status="Sold Out"
-                sign={<MdOutlineDoNotDisturb />}
-              />
-              <MainCartPage
-                price={778}
-                dp={pic}
-                name="Round Buckle 1'' Belt"
-                status="In Stock"
-                sign={<AiOutlineCheck />}
-              />
-              <MainCartPage
-                price={778}
-                dp={pic}
-                name="Round Buckle 1'' Belt"
-                status="Sold Out"
-                sign={<MdOutlineDoNotDisturb />}
-              />
+              
             </Product>
             <Summary>
               <Summmary />
@@ -74,12 +65,31 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: calc(100% - 200px);
 `;
-const Head = styled.div`
+const Div = styled.div`
   height: 230px;
   display: flex;
+  /* background-color: red; */
   flex-direction: column;
   justify-content: center;
   border-bottom: 1px solid #d1cece;
+`;
+const Btn = styled.div`
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Head = styled.div`
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: blue; */
 `;
 const Title = styled.div`
   font-weight: bold;

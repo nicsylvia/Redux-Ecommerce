@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { VscPaintcan } from "react-icons/vsc";
 import { BsArrowsAngleExpand } from "react-icons/bs";
+import { useAppDispatch, useAppSelector } from "../Global/Store";
 
 interface iprops {
   price: number;
@@ -18,28 +19,35 @@ const MainCartPage: React.FC<iprops> = ({
   status,
   sign,
 }) => {
+
+  const readFromMyCart = useAppSelector((state) => state.cart)
+  const dispatch = useAppDispatch()
+  
   return (
+    
     <div>
       <div>
-      <Container>
+      {
+        readFromMyCart?.map((props) =>(
+          <Container>
         <Pic>
           <img src={dp} />
         </Pic>
         <Details>
           <Detail>
-            <Name>{name}</Name>
+            <Name>{props.title}</Name>
             <About>
               <Div>
                 <Sign2>
                   <VscPaintcan />
                 </Sign2>
-                <>Black</>
+                <>{props.category}</>
               </Div>
               <div>
                 <Sign2>
                   <BsArrowsAngleExpand />
                 </Sign2>
-                <>2XL</>
+                <>{props.desc}</>
               </div>
             </About>
           </Detail>
@@ -50,14 +58,18 @@ const MainCartPage: React.FC<iprops> = ({
         </Details>
         <Buttons>
           <button>-</button>
-          <div>1</div>
+          <div>
+            {props.CartQuantity}
+          </div>
           <button>+</button>
         </Buttons>
         <Price>
-          <PriceDiv>${price}</PriceDiv>
+          <PriceDiv>${props.price}</PriceDiv>
           <Remove>Remove</Remove>
         </Price>
       </Container>
+        ))
+      }
     </div>
     </div>
   )
@@ -104,6 +116,10 @@ const About = styled.div`
 
   div {
     display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100px;
   }
 `;
 const Info = styled.div`
