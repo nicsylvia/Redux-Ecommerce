@@ -5,7 +5,9 @@ import shirt from "../Assets/shirt.png";
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import { GetAllProducts } from "../API/Api"
+import { GetAllProducts } from "../API/Api";
+import { Audio } from 'react-loader-spinner';
+
 
 const AllProducts = () => {
 
@@ -15,6 +17,9 @@ const AllProducts = () => {
         queryFn: GetAllProducts,
     })
 
+    // For loading :
+    
+
   return (
     <div>
     <Container>
@@ -23,7 +28,7 @@ const AllProducts = () => {
             <Products>
                 {
                     GettingProducts?.data?.data.map((product: any) =>(
-                        <Display key={product._id} to="/productdetails/:productID">
+                        <Display to={`/productdetails/${product._id}`}>
                     <First>
                         <Wishlist>
                             <Heart>
