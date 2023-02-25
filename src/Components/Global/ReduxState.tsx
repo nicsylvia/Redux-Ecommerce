@@ -54,7 +54,7 @@ const ReduxState = createSlice({
 		if (state.cart[outOfCart].CartQuantity > 1) {
 			state.cart[outOfCart].CartQuantity -= 1
 		} else {
-			state.cart.filter((out) => out._id !== payload._id)
+			state.cart = state.cart.filter((out) => out._id !== payload._id)
 		}
 		state.totalQuantity -= 1
 	},
