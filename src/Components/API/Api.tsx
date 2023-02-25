@@ -19,6 +19,6 @@ export const GetAllProducts = async() =>{
 }
 
 // Get single products:
-export const SingleProducts = async() =>{
-    return await axios.get(`${Endpoint}/all-products/:productID`).then((res) => res.data)
+export const SingleProducts = async(productID: any) =>{
+    return await axios.get(`${Endpoint}/all-products/${productID}`).then((res) => res.data)
 }

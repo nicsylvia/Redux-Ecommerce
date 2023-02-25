@@ -3,15 +3,27 @@ import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Global/ReduxState";
+import { useQuery } from "@tanstack/react-query";
+import { SingleProducts } from "../API/Api";
+import { useParams } from "react-router-dom";
 
 const SinglePage = () => {
+
+	const { productID } = useParams();
+
+	const OneProducts = useQuery({
+		queryKey: ["SingleProducts", productID],
+		queryFn: () =>{
+			return SingleProducts(productID)
+		}
+	})
 
 	const dispatch = useDispatch();
 	return (
 		<Container>
 			<First></First>
 			<Second>
-				<h2>Heavy Weight Shoes</h2>
+				<h2>{OneProducts?.data?.data.title}</h2>
 				<PriceHold>
 					<Price>$30.00</Price>
                     <Ratting>
