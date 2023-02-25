@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../Global/ReduxState";
+import { addToCart, removeFromCart } from "../Global/ReduxState";
 import { useQuery } from "@tanstack/react-query";
 import { SingleProducts } from "../API/Api";
 import { useParams } from "react-router-dom";
@@ -51,7 +51,11 @@ const SinglePage = () => {
 				</PriceHold>
 				<Holder>
 					<ButtonHold>
-						<But>-</But>
+						<But
+						onClick={() =>{
+							dispatch(removeFromCart(OneProducts?.data?.data))
+						}}
+						>-</But>
 						<Count>
 							{readSingleItem[0]?.CartQuantity}
 						</Count>

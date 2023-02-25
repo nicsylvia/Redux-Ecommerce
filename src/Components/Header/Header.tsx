@@ -11,6 +11,8 @@ const Header = () => {
 
   const loggedInUser = useAppSelector((state) => state.currentUser);
 
+  const readCartQuantity = useAppSelector((state) => state.totalQuantity)
+
   const dispatch = useAppDispatch();
 
   return (
@@ -34,7 +36,9 @@ const Header = () => {
             <P to = "/cart">
             <RiShoppingCartLine />
             <Count>
-            <span>0</span>
+            <span>
+              {readCartQuantity}
+            </span>
             </Count>
             </P>
             <p>

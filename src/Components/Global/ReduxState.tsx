@@ -44,6 +44,19 @@ const ReduxState = createSlice({
 				CartQuantity: 1
 			})
 		}
+		state.totalQuantity += 1
+	},
+	removeFromCart: (state, {payload}: PayloadAction<CartData>) =>{
+		const outOfCart = state.cart.findIndex((position) =>
+			position._id === payload._id
+		)
+
+		if (state.cart[outOfCart].CartQuantity > 1) {
+			state.cart[outOfCart].CartQuantity -= 1
+		} else {
+			state.cart.filter((out) => out._id !== payload._id)
+		}
+		state.totalQuantity -= 1
 	},
 	clearCart: (state) =>{
 		state.cart = []
@@ -51,6 +64,6 @@ const ReduxState = createSlice({
   }
 });
 
-export const { UserLogin, UserLogOut, addToCart, clearCart } = ReduxState.actions
+export const { UserLogin, UserLogOut, addToCart, clearCart, removeFromCart } = ReduxState.actions
 
 export default ReduxState.reducer

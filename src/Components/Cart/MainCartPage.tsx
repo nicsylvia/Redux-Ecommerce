@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { VscPaintcan } from "react-icons/vsc";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import { useAppDispatch, useAppSelector } from "../Global/Store";
-import { addToCart } from "../Global/ReduxState";
+import { addToCart, removeFromCart } from "../Global/ReduxState";
 
 interface iprops {
   price: number;
@@ -58,7 +58,11 @@ const MainCartPage: React.FC<iprops> = ({
           </Info>
         </Details>
         <Buttons>
-          <button>-</button>
+          <button
+          onClick={() =>{
+            dispatch(removeFromCart(props))
+          }}
+          >-</button>
           <div>
             {props.CartQuantity}
           </div>
@@ -70,7 +74,11 @@ const MainCartPage: React.FC<iprops> = ({
         </Buttons>
         <Price>
           <PriceDiv>${props.price}</PriceDiv>
-          <Remove>Remove</Remove>
+          <Remove
+          onClick={() =>{
+            dispatch(removeFromCart(props))
+          }}
+          >Remove</Remove>
         </Price>
       </Container>
         ))
@@ -183,6 +191,7 @@ const PriceDiv = styled.div`
   font-size: 14px;
 `;
 const Remove = styled.div`
+cursor: pointer;
   font-weight: bold;
   font-size: 15px;
   color: #4f86fc;
