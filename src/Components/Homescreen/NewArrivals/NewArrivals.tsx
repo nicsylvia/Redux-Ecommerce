@@ -6,8 +6,24 @@ import shirt from "../../Assets/shirt.png";
 import { NavLink } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { GetAllProducts } from '../../API/Api';
+import { Oval } from "react-loader-spinner"
 
 const NewArrivals = () => {
+
+// For loading :
+<Oval
+  height={80}
+  width={80}
+  color="#4fa94d"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel='oval-loading'
+  secondaryColor="#4fa94d"
+  strokeWidth={2}
+  strokeWidthSecondary={2}
+
+/>
 
     const AllProducts = useQuery({
         queryKey: ["Products"],
@@ -19,6 +35,9 @@ const NewArrivals = () => {
             <Wrapper>
                 <h1>New Arrivals. <span>REY backpacks & bags</span></h1>
                 <Products>
+                    {
+                        AllProducts.isLoading ? <Oval /> : null
+                    }
                     {
                         AllProducts?.data?.data.map((product: any) =>(
                             <Display to={`/productdetails/${product._id}`}>
@@ -35,14 +54,14 @@ const NewArrivals = () => {
                         </First>
                         <Second>
                             <One>
-                                <h2>Leather Gloves</h2>
+                                <h2>{product.title}</h2>
                             </One>
                             <Two>
-                                <h3>perfect mint green</h3>
+                                <h3>{product.desc}</h3>
                             </Two>
                             <Three>
                                 <Four>
-                                    $42.00
+                                   {product.price}
                                 </Four>
                                 <Five>
                                     <span><BsFillStarFill style={{color : "#FBBF24"}}/></span>
@@ -106,6 +125,11 @@ h3{
     color: #000000;
     font-size: 16px;
     margin-top: 10px;
+    
+    overflow: hidden;
+    width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }`
 const One = styled.div`
@@ -186,6 +210,8 @@ const Products = styled.div`
     height: 65vh;
     /* background-color: #00ff62; */
     display: flex;
+    justify-content: center;
+    align-items: center;
  
 `
 
