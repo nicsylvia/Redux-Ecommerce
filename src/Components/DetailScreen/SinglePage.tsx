@@ -25,7 +25,7 @@ const SinglePage = () => {
 			return SingleProducts(productID)
 		}
 	})
-
+	console.log(OneProducts)
 	const dispatch = useDispatch();
 	return (
 		<Container>
@@ -51,12 +51,22 @@ const SinglePage = () => {
 							{readSingleItem[0]?.CartQuantity}
 						</Count>
 						<But
+						// So that once you've clicked above what is in your cart, it will be disabled and you can't order it again. Meaning out of stock
+						aria-disabled = {
+							readSingleItem[0]?.CartQuantity === OneProducts?.data?.data.quantity
+						}
+
+						// So that once we click on the +, it will increase in quantity and also add to cart
 						onClick={() =>{
 							dispatch(addToCart(OneProducts?.data?.data))
 						}}
 						style={{ marginLeft: "20px" }}>+</But>
 					</ButtonHold>
-					<MainButton>Add To Cart</MainButton>
+					<MainButton
+					onClick={() =>{
+						dispatch(addToCart(OneProducts?.data?.data))
+					}}
+					>Add To Cart</MainButton>
 				</Holder>
 
 				<DescHold>Description</DescHold>
