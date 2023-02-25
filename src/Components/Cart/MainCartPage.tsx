@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { VscPaintcan } from "react-icons/vsc";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import { useAppDispatch, useAppSelector } from "../Global/Store";
+import { addToCart } from "../Global/ReduxState";
 
 interface iprops {
   price: number;
@@ -61,7 +62,11 @@ const MainCartPage: React.FC<iprops> = ({
           <div>
             {props.CartQuantity}
           </div>
-          <button>+</button>
+          <button
+         onClick={() =>{
+          dispatch(addToCart(props))
+         }}
+          >+</button>
         </Buttons>
         <Price>
           <PriceDiv>${props.price}</PriceDiv>

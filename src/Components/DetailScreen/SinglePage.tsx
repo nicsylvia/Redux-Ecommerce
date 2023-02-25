@@ -20,7 +20,7 @@ const SinglePage = () => {
 
 	// To get the total price of quantity of each items in cart:
 	const TotalPrice = (item: any) => item.reduce((allItems: number, oneItem: any) =>
-		allItems + oneItem.price * oneItem.quantity, 0
+		allItems + oneItem.price * oneItem.quantity, 0,
 	)
 
 	
