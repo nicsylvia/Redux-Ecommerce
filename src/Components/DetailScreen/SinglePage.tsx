@@ -6,11 +6,19 @@ import { addToCart } from "../Global/ReduxState";
 import { useQuery } from "@tanstack/react-query";
 import { SingleProducts } from "../API/Api";
 import { useParams } from "react-router-dom";
+import { useAppSelector } from "../Global/Store";
 
 const SinglePage = () => {
-
+	
 	const { productID } = useParams();
 
+	// To have access to the whole of my cart
+	const readMyCart = useAppSelector((state) => state.cart)
+
+	// To read a single product from the cart
+	const readSingleItem = readMyCart.filter((item) => item._id === productID)
+
+	
 	const OneProducts = useQuery({
 		queryKey: ["SingleProducts", productID],
 		queryFn: () =>{
@@ -25,7 +33,7 @@ const SinglePage = () => {
 			<Second>
 				<h2>{OneProducts?.data?.data.title}</h2>
 				<PriceHold>
-					<Price>$30.00</Price>
+					<Price>{OneProducts?.data?.data.price}</Price>
                     <Ratting>
 						<AiFillStar
 							style={{
@@ -49,12 +57,7 @@ const SinglePage = () => {
 				<DescHold>Description</DescHold>
 				<br />
 				<span style={{ marginTop: "10px" }}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-					et reiciendis, sit non dolor, aspernatur eligendi harum incidunt
-					quidem pariatur iusto veniam minus inventore autem soluta id libero,
-					quod accusamus a iste. Delectus iure facere quis sed quibusdam
-					doloribus, nobis voluptate consequatur minima, natus voluptatibus nam
-					consectetur, sint libero soluta?
+					{OneProducts?.data?.data.desc}
 				</span>
 			</Second>
 		</Container>
