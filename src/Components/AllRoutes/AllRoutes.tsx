@@ -28,7 +28,7 @@ const AllRoutes = () => {
             element: <AllProducts />
         },
         {
-            path: "/productdetails",
+            path: "/productdetails/:productID",
             element: <ProductDetails />
         },
         {

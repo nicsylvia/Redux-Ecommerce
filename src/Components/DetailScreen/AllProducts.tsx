@@ -5,14 +5,16 @@ import shirt from "../Assets/shirt.png";
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
+import { GetAllProducts } from "../API/Api"
 
 const AllProducts = () => {
 
     // Query funtion to get all products
     const GettingProducts = useQuery({
-        queryFn: AllProducts,
-        queryKey: ["All-Products"]
+        queryKey: ["All-Products"],
+        queryFn: GetAllProducts,
     })
+
   return (
     <div>
     <Container>
@@ -20,8 +22,8 @@ const AllProducts = () => {
             <h1>New Arrivals. <span>All Products</span></h1>
             <Products>
                 {
-                    GettingProducts?.data?.map((product: any) =>(
-                        <Display key={product._id} to="/productdetails">
+                    GettingProducts?.data?.data.map((product: any) =>(
+                        <Display key={product._id} to="/productdetails/:productID">
                     <First>
                         <Wishlist>
                             <Heart>
@@ -105,6 +107,11 @@ h3{
     font-size: 16px;
     margin-top: 10px;
 
+    width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }`
 const One = styled.div`
 h2{
@@ -176,6 +183,7 @@ const Display = styled(NavLink)`
     width: 320px;
     height: 100%;
     text-decoration: none;
+    /* background-color: red; */
 
 `
 const Products = styled.div`
@@ -183,6 +191,7 @@ const Products = styled.div`
     height: 65vh;
     /* background-color: #00ff62; */
     display: flex;
+    justify-content: space-between;
  
 `
 

@@ -14,7 +14,7 @@ export const CreateNewUser = async({name, email, password, confirmPassword}: Use
 }
 
 // Get all products:
-export const AllProducts = async() =>{
+export const GetAllProducts = async() =>{
     return await axios.get(`${Endpoint}/all-products`).then((res) => res.data)
 }
 
