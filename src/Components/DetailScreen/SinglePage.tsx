@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { useAppSelector } from "../Global/Store";
 
 const SinglePage = () => {
-	
+
 	const { productID } = useParams();
 
 	// To have access to the whole of my cart
@@ -49,6 +49,9 @@ const SinglePage = () => {
 						<But>-</But>
 						<Count>0</Count>
 						<But
+						onClick={() =>{
+							dispatch(addToCart(OneProducts?.data?.data))
+						}}
 						style={{ marginLeft: "20px" }}>+</But>
 					</ButtonHold>
 					<MainButton>Add To Cart</MainButton>
