@@ -41,7 +41,6 @@ const CartProps = () => {
                 status="Sold Out"
                 sign={<MdOutlineDoNotDisturb />}
               />
-              
             </Product>
             <Summary>
               <Summmary />
