@@ -1,37 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
-import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../Global/ReduxState";
 import { useQuery } from "@tanstack/react-query";
 import { SingleProducts } from "../API/Api";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../Global/Store";
+import { useAppSelector, useAppDispatch } from "../Global/Store";
 
 const SinglePage = () => {
 
 	const { productID } = useParams();
-
+	const dispatch = useAppDispatch();
+	
 	// To have access to the whole of my cart
 	const readMyCart = useAppSelector((state) => state.cart)
+
 
 	// To read a single product from the cart
 	const readSingleItem = readMyCart.filter((item) => item._id === productID);
 
 	// To get the total price of quantity of each items in cart:
 	const TotalPrice = (item: any) => item.reduce((allItems: number, oneItem: any) =>
-		allItems + oneItem.price * oneItem.quantity, 0,
+		allItems + oneItem.CartQuantity * oneItem.price, 0,
 	)
-
 	
 	const OneProducts = useQuery({
-		queryKey: ["SingleProducts", productID],
+		queryKey: ["oneProduct", productID],
 		queryFn: () =>{
 			return SingleProducts(productID)
 		}
 	})
 	console.log(OneProducts)
-	const dispatch = useDispatch();
 	return (
 		<Container>
 			<First></First>
@@ -61,9 +60,9 @@ const SinglePage = () => {
 						</Count>
 						<But
 						// So that once you've clicked above what is in your cart, it will be disabled and you can't order it again. Meaning out of stock
-						// disabled = {
-						// 	readSingleItem[0].CartQuantity === OneProducts?.data?.data.quantity
-						// }
+						disabled = {
+							readSingleItem[0]?.CartQuantity === OneProducts?.data?.data.quantity
+						}
 
 						// So that once we click on the +, it will increase in quantity and also add to cart
 						onClick={() =>{
@@ -77,7 +76,7 @@ const SinglePage = () => {
 					}}
 					>Add To Cart</MainButton>
 				</Holder>
-				<div>Total Price: {TotalPrice(readMyCart)}</div>
+				<div>Total Price: {TotalPrice(readMyCart)}  </div>
 				<DescHold>Description</DescHold>
 				<br />
 				<span style={{ marginTop: "10px" }}>
@@ -104,7 +103,7 @@ const ButtonHold = styled.div`
 	align-items: center;
 `;
 
-const But = styled.div`
+const But = styled.button`
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;

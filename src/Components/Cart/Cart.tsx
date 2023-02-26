@@ -1,10 +1,10 @@
 import React from 'react'
-import CartProps from './CartProps'
+import MainCartPage from './MainCartPage'
 
 const Cart = () => {
   return (
     <div>
-      <CartProps />
+      <MainCartPage />
     </div>
   )
 }

@@ -37,15 +37,15 @@ const SignUp = () => {
 			queryClient.invalidateQueries(["NewUsers"])
 		}
 	});
-console.log(RegisterUsers)
+
 	const NewUsers = handleSubmit((data) =>{
 		RegisterUsers.mutate(data)
 		reset();
 		Swal.fire({
-			title: "Registered Successfully",
-			text: RegisterUsers?.data?.message,
-			timer: 3000,
 			icon: "success",
+			title: "Registered Successfully",
+			text: RegisterUsers!.data!.message,
+			timer: 3000,
 		})
 	})
 	console.log("This is welcome: ", RegisterUsers?.data?.message)

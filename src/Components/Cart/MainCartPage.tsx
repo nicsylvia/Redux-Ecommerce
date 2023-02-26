@@ -1,38 +1,50 @@
-import React from "react";
+import React from 'react';
 import styled from "styled-components";
+import { MdOutlineDoNotDisturb } from "react-icons/md";
+import pic from "../Assets/shirt.png";
+import { AiOutlineCheck } from "react-icons/ai";
+import Summmary from './Summmary';
+import MainCartPage from './MainCartPage';
+import { useAppDispatch, useAppSelector } from '../Global/Store';
+import { clearCart } from '../Global/ReduxState';
 import { VscPaintcan } from "react-icons/vsc";
 import { BsArrowsAngleExpand } from "react-icons/bs";
-import { useAppDispatch, useAppSelector } from "../Global/Store";
 import { addToCart, removeFromCart } from "../Global/ReduxState";
 
-interface iprops {
-  price: number;
-  dp: any;
-  name: string;
-  status: string;
-  sign: any;
-}
 
-const MainCartPage: React.FC<iprops> = ({
-  price,
-  dp,
-  name,
-  status,
-  sign,
-}) => {
+const CartProps = () => {
+
+  
 
   const readFromMyCart = useAppSelector((state) => state.cart)
-  const dispatch = useAppDispatch()
-  
+  const dispatch = useAppDispatch();
   return (
-    
     <div>
-      <div>
-      {
-        readFromMyCart?.map((props) =>(
-          <Container>
+        <div>
+      <Container1>
+        <Wrapper>
+          <Head>
+            <Div1>
+            <Title>Shopping Cart</Title>
+            <Split>
+              Homepage / Clothing Categories / <span> Shopping Cart</span>
+            </Split>
+            </Div1>
+            <Btn onClick={() =>{
+              dispatch(clearCart())
+            }} >
+              Clear Cart
+            </Btn>
+          </Head>
+          <br />
+          <br />
+          <Body>
+           {
+            readFromMyCart.map((props) =>(
+              <Product>
+              <Container>
         <Pic>
-          <img src={dp} />
+          <img src={pic} />
         </Pic>
         <Details>
           <Detail>
@@ -53,8 +65,8 @@ const MainCartPage: React.FC<iprops> = ({
             </About>
           </Detail>
           <Info>
-            <Sign>{sign}</Sign>
-            <div>{status}</div>
+            <Sign></Sign>
+            <div>In Stock</div>
           </Info>
         </Details>
         <Buttons>
@@ -73,7 +85,7 @@ const MainCartPage: React.FC<iprops> = ({
           >+</button>
         </Buttons>
         <Price>
-          <PriceDiv>${props.price}</PriceDiv>
+          <PriceDiv>#{props.price}</PriceDiv>
           <Remove
           onClick={() =>{
             dispatch(removeFromCart(props))
@@ -81,14 +93,21 @@ const MainCartPage: React.FC<iprops> = ({
           >Remove</Remove>
         </Price>
       </Container>
-        ))
-      }
+            </Product>
+            ))
+           }
+            <Summary>
+              <Summmary />
+            </Summary>
+          </Body>
+        </Wrapper>
+      </Container1>
     </div>
     </div>
   )
 }
 
-export default MainCartPage;
+export default CartProps;
 
 const Container = styled.div`
   display: flex;
@@ -212,4 +231,66 @@ const Sign2 = styled.div`
   align-items: center;
   color: #646363;
   margin-right: 7px;
+`;
+
+
+const Container1 = styled.div`
+  width: 100%;
+  display: flex;
+  /* background-color: blue; */
+  justify-content: center;
+  align-items: center;
+`;
+const Wrapper = styled.div`
+  width: calc(100% - 200px);
+`;
+const Div1 = styled.div`
+  height: 230px;
+  display: flex;
+  /* background-color: red; */
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #d1cece;
+`;
+const Btn = styled.div`
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Head = styled.div`
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: blue; */
+`;
+const Title = styled.div`
+  font-weight: bold;
+  font-size: 38px;
+`;
+const Split = styled.div`
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #686666;
+  span {
+    text-decoration: underline;
+  }
+`;
+const Body = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+const Product = styled.div`
+  margin-right: 50px;
+`;
+const Summary = styled.div`
+  flex: 1;
+  position: relative;
 `;

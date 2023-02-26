@@ -13,6 +13,8 @@ const Header = () => {
 
   const readCartQuantity = useAppSelector((state) => state.totalQuantity)
 
+  console.log("cart Quantity: ", readCartQuantity)
+
   const dispatch = useAppDispatch();
 
   return (
@@ -80,8 +82,8 @@ text-decoration: none;
 `
 
 const Count = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: #3d4fd7d6;
   color: #fff;
   border-radius: 50px;

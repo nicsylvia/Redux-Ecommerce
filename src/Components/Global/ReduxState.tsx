@@ -44,6 +44,7 @@ const ReduxState = createSlice({
 				CartQuantity: 1
 			})
 		}
+		state.totalQuantity += 1
 	},
 	removeFromCart: (state, {payload}: PayloadAction<CartData>) =>{
 		const outOfCart = state.cart.findIndex((position) =>
@@ -58,7 +59,8 @@ const ReduxState = createSlice({
 		state.totalQuantity -= 1
 	},
 	clearCart: (state) =>{
-		state.cart = []
+		state.cart = [];
+		state.totalQuantity = 0
 	},
   }
 });
