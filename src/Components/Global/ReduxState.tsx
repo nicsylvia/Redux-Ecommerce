@@ -44,14 +44,6 @@ const ReduxState = createSlice({
 				CartQuantity: 1
 			})
 		}
-		state.totalQuantity += 1
-		state.totalPrice
-			state.totalPrice +=
-			state.cart[check].cartQuantity * state.cart[check].price;
-			state.totalPrice = state.cart.reduce(
-			(accc, next) => accc + next.cartQuantity * next.price,
-			0,
-			);
 	},
 	removeFromCart: (state, {payload}: PayloadAction<CartData>) =>{
 		const outOfCart = state.cart.findIndex((position) =>
