@@ -15,7 +15,6 @@ const SinglePage = () => {
 	// To have access to the whole of my cart
 	const readMyCart = useAppSelector((state) => state.cart)
 
-
 	// To read a single product from the cart
 	const readSingleItem = readMyCart.filter((item) => item._id === productID);
 

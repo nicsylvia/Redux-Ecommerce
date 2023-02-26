@@ -12,6 +12,9 @@ const Summmary = () => {
 
 const readFromMyCart = useAppSelector((state) => state.cart)
 
+const shippingEstimate = 1000
+const TaxEstimate = 1000
+
   return (
     <div>
         <Container>
@@ -23,16 +26,16 @@ const readFromMyCart = useAppSelector((state) => state.cart)
               <NumberDiv>#{TotalPrice(readFromMyCart)}</NumberDiv>
             </Records>
             <Records>
-              <TextDiv>Shipping extimate</TextDiv>
-              <NumberDiv>$3663</NumberDiv>
+              <TextDiv>Shipping estimate</TextDiv>
+              <NumberDiv>#{shippingEstimate}</NumberDiv>
             </Records>
             <Records>
               <TextDiv>Tax estimate</TextDiv>
-              <NumberDiv>$3663</NumberDiv>
+              <NumberDiv>#{TaxEstimate}</NumberDiv>
             </Records>
             <Records2>
               <TextDiv2>Order Total</TextDiv2>
-              <NumberDiv2>#{TotalPrice(readFromMyCart)}</NumberDiv2>
+              <NumberDiv2>#{TotalPrice(readFromMyCart) + shippingEstimate + TaxEstimate}</NumberDiv2>
             </Records2>
           </Summaries>
           <Button>

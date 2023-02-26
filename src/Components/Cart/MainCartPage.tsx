@@ -10,11 +10,34 @@ import { clearCart } from '../Global/ReduxState';
 import { VscPaintcan } from "react-icons/vsc";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import { addToCart, removeFromCart } from "../Global/ReduxState";
+import { SingleProducts } from '../API/Api';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 
 const CartProps = () => {
 
+  
+  const { productID } = useParams();
+	
+	// To have access to the whole of my cart
   const readFromMyCart = useAppSelector((state) => state.cart)
+	
+
+	// To read a single product from the cart
+	const readSingleItem = readFromMyCart.filter((item) => item._id === productID);
+
+	// To get the total price of quantity of each items in cart:
+	const TotalPrice = (item: any) => item.reduce((allItems: number, oneItem: any) =>
+		allItems + oneItem.CartQuantity * oneItem.price, 0,
+	)
+	
+	const OneProducts = useQuery({
+		queryKey: ["oneProduct", productID],
+		queryFn: () =>{
+			return SingleProducts(productID)
+		}
+	})
 
   
   const dispatch = useAppDispatch();
@@ -79,6 +102,9 @@ const CartProps = () => {
             {props.CartQuantity}
           </div>
           <button
+        //  disabled = {
+        //   readSingleItem[0]?.CartQuantity === OneProducts?.data?.data.quantity
+        // }
          onClick={() =>{
           dispatch(addToCart(props))
          }}
