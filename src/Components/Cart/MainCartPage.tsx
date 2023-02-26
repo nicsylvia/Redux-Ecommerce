@@ -14,9 +14,16 @@ import { addToCart, removeFromCart } from "../Global/ReduxState";
 
 const CartProps = () => {
 
-  
+  // const TotalPrice = (item: any) => item.reduce((allItems: number, oneItem: any) =>
+	// 	allItems + oneItem.CartQuantity * oneItem.price, 0,
+	// )
 
   const readFromMyCart = useAppSelector((state) => state.cart)
+
+  console.log(readFromMyCart)
+
+  // const ItemTotalPrice = readFromMyCart?.
+  
   const dispatch = useAppDispatch();
   return (
     <div>
