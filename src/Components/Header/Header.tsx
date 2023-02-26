@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from "../Assets/isaac2.png";
+import logo from "../Assets/sylvialogo.png";
 import { CiSearch } from "react-icons/ci"
 import { RiShoppingCartLine } from "react-icons/ri"
 import { Link } from 'react-router-dom';
@@ -113,8 +113,8 @@ const Wrapper = styled.div`
 const Img = styled(Link)`
 `;
 const Logo = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 `;
 const Navigation = styled.div`
