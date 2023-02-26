@@ -20,7 +20,7 @@ const SignUp = () => {
 		name: yup.string().required(),
 		email: yup.string().email().required(),
 		password: yup.string().min(8).required(),
-		confirmPassword: yup.string().oneOf([yup.ref("password")]).required(),
+		confirmPassword: yup.string().oneOf([yup.ref("password")]).required("Passowrds do not match"),
 	})
 
 	type formData = yup.InferType<typeof Schema>
@@ -49,21 +49,27 @@ const SignUp = () => {
 		<Container>
 			<Card onSubmit={NewUsers}>
 				<h3>Register</h3>
-				<input 
+
+				<Input  props={errors?.name ? "outline" : ""}
 				{...register("name")}
 				placeholder='Enter your name' />
-				{/* <p>{errors?.name && errors?.name?.message}</p> */}
-				<input
+				<p>{errors?.name && errors?.name?.message}</p>
+
+				<Input props={errors?.email ? "outline" : ""}
 				{...register("email")}
 				placeholder='Enter your email' />
-				{/* <p>{errors?.email && errors?.email?.message}</p> */}
-				<input
+				<p>{errors?.email && errors?.email?.message}</p>
+
+				<Input props={errors?.password ? "outline" : ""}
 				{...register("password")}
 				placeholder='Enter your password' />
-				{/* <p>{errors?.password && errors?.password?.message}</p> */}
-				<input
+				<p>{errors?.password && errors?.password?.message}</p>
+
+				<Input props={errors?.confirmPassword ? "outline" : ""}
 				{...register("confirmPassword")}
-				placeholder='Confirm your password' />
+				placeholder='Confirm your password' type="password" />
+				<p>{errors.confirmPassword && errors.confirmPassword.message}</p>
+
 				<MainButton onClick={NewUsers} type='submit'>Register</MainButton>
 			</Card>
 		</Container>
@@ -94,16 +100,6 @@ const Card = styled.form`
 	min-height: 300px;
 	width: 400px;
 	border: 1px solid #f1f1f1;
-	input {
-		height: 35px;
-		width: 95%;
-		/* margin: 10px; */
-		border: 1px solid #f1f1f1;
-		outline: border;
-		/* :focus {
-			border-color: red;
-		} */
-	}
 	p {
 		font-size: 11px;
 		margin-bottom: 5px;
@@ -111,6 +107,12 @@ const Card = styled.form`
 		color: red;
 		/* min-height: 10px; */
 	}
+`;
+const Input = styled.input<{props: string}>`
+	height: 35px;
+	width: 95%;
+	border: 1px solid #f1f1f1;
+	outline: ${({props}) => props ? "1px solid red" : "none"} ;
 `;
 
 const Container = styled.div`
