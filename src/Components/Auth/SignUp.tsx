@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 import { UserLogin } from '../Global/ReduxState';
 import { useAppDispatch } from '../Global/Store';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 	 
@@ -20,7 +21,7 @@ const SignUp = () => {
 		name: yup.string().required(),
 		email: yup.string().email().required(),
 		password: yup.string().min(8).required(),
-		confirmPassword: yup.string().oneOf([yup.ref("password")]).required("Passowrds do not match"),
+		confirmPassword: yup.string().oneOf([yup.ref("password")]).required("Password do not match"),
 	})
 
 	type formData = yup.InferType<typeof Schema>
@@ -36,13 +37,19 @@ const SignUp = () => {
 			queryClient.invalidateQueries(["NewUsers"])
 		}
 	});
-
+console.log(RegisterUsers)
 	const NewUsers = handleSubmit((data) =>{
 		RegisterUsers.mutate(data)
 		reset();
+		Swal.fire({
+			title: "Registered Successfully",
+			text: RegisterUsers?.data?.message,
+			timer: 3000,
+			icon: "success",
+		})
 	})
-	console.log(NewUsers)
-
+	console.log("This is welcome: ", RegisterUsers?.data?.message)
+	
 	
 
 	return (
