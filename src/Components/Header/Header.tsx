@@ -44,7 +44,7 @@ const Header = () => {
             </Count>
             </P>
             <p>
-              {
+            {
                 loggedInUser?.name ? (
                   <Button
                   onClick={() =>{
@@ -60,6 +60,7 @@ const Header = () => {
                 )
               }
             </p>
+            
           </Profile>
         </Wrapper>
       </Container>

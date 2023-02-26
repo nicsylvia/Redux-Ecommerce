@@ -9,8 +9,11 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { UserLogin } from '../Global/ReduxState';
 import { useAppDispatch } from '../Global/Store';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+
+	const navigate = useNavigate();
 	 
 	const dispatch = useAppDispatch();
 
@@ -41,14 +44,14 @@ const SignUp = () => {
 	const NewUsers = handleSubmit((data) =>{
 		RegisterUsers.mutate(data)
 		reset();
+		navigate("/")
 		Swal.fire({
 			icon: "success",
 			title: "Registered Successfully",
-			text: RegisterUsers!.data!.message,
+			// text: RegisterUsers!.data!.message,
 			timer: 3000,
 		})
 	})
-	console.log("This is welcome: ", RegisterUsers?.data?.message)
 	
 	
 
@@ -69,7 +72,7 @@ const SignUp = () => {
 
 				<Input props={errors?.password ? "outline" : ""}
 				{...register("password")}
-				placeholder='Enter your password' />
+				placeholder='Enter your password' type="password" />
 				<p>{errors?.password && errors?.password?.message}</p>
 
 				<Input props={errors?.confirmPassword ? "outline" : ""}
@@ -77,7 +80,7 @@ const SignUp = () => {
 				placeholder='Confirm your password' type="password" />
 				<p>{errors.confirmPassword && errors.confirmPassword.message}</p>
 
-				<MainButton onClick={NewUsers} type='submit'>Register</MainButton>
+				<MainButton type='submit'>Register</MainButton>
 			</Card>
 		</Container>
 	);
