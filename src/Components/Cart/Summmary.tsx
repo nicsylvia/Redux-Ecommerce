@@ -1,8 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { MdOutlineDoNotDisturb } from "react-icons/md";
+import { addToCart } from "../Global/ReduxState";
 
 const Summmary = () => {
+
+  	// To get the total price of quantity of each items in cart:
+	const TotalPrice = (item: any) => item.reduce((allItems: number, oneItem: any) =>
+  allItems + oneItem.CartQuantity * oneItem.price, 0,
+)
+
   return (
     <div>
         <Container>
@@ -23,7 +30,7 @@ const Summmary = () => {
             </Records>
             <Records2>
               <TextDiv2>Order Total</TextDiv2>
-              <NumberDiv2>$3663</NumberDiv2>
+              <NumberDiv2>#{TotalPrice(addToCart)}</NumberDiv2>
             </Records2>
           </Summaries>
           <Button>
