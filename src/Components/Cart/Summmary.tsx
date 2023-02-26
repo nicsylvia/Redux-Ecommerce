@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MdOutlineDoNotDisturb } from "react-icons/md";
-import { addToCart } from "../Global/ReduxState";
+import { useAppSelector } from "../Global/Store";
 
 const Summmary = () => {
 
@@ -9,6 +9,8 @@ const Summmary = () => {
 	const TotalPrice = (item: any) => item.reduce((allItems: number, oneItem: any) =>
   allItems + oneItem.CartQuantity * oneItem.price, 0,
 )
+
+const readFromMyCart = useAppSelector((state) => state.cart)
 
   return (
     <div>
@@ -18,7 +20,7 @@ const Summmary = () => {
           <Summaries>
             <Records>
               <TextDiv>Subtotal</TextDiv>
-              <NumberDiv>$3663</NumberDiv>
+              <NumberDiv>#{TotalPrice(readFromMyCart)}</NumberDiv>
             </Records>
             <Records>
               <TextDiv>Shipping extimate</TextDiv>
@@ -30,7 +32,7 @@ const Summmary = () => {
             </Records>
             <Records2>
               <TextDiv2>Order Total</TextDiv2>
-              <NumberDiv2>#{TotalPrice(addToCart)}</NumberDiv2>
+              <NumberDiv2>#{TotalPrice(readFromMyCart)}</NumberDiv2>
             </Records2>
           </Summaries>
           <Button>
